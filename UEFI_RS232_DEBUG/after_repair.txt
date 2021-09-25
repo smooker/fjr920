@@ -15,3 +15,17 @@ ERROR: Type:2; Severity:80; Class:81; Subclass:82; Operation: 101
 
 
 
+NON FUJITSU MEMORY MODULE
+
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 1
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 201
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 401
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 601
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 801
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: A01
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: C01
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: E01
+
+
+
+
