@@ -1,1 +1,1 @@
-# fjr920
+# Fujitsu Celsius R920 BIOS reflash
