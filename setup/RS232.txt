@@ -1,0 +1,4690 @@
+RC Version: 01000018 
+host = FF0C4EF4  (pointer to sysHost structure)
+Legacy Serial Debug Enabled
+
+QPI Init starting...
+
+
+******* QPI Setup Structure *******
+Bus   Ratio: 1 1 1 1
+IO    Ratio: 3 2 2 1
+MMIOL Ratio: 6 2 2 1
+LegacyVgaSoc: 0
+MmioP2pDis: 0
+IsocAzaliaVc1En: 1
+DebugPrintLevel: 15
+AltRtid2S: 0
+QpiLinkSpeedMode: 1 (FAST)
+QpiLinkSpeed: 6
+QpiLinkL0sEn: 0
+QpiLinkL0pEn: 0
+QpiLinkL1En: 0
+QpiLbEn: 0
+
+
+******* Common Setup Structure *******
+mmCfgBase: 0x40000000 
+mmCfgSize: 0x10000000
+mmiohSize: 64 GB 
+numaEn: 1 
+isocEn: 1 
+dcaEn: 1 
+
+
+******* Common Var Structure *******
+resetRequired: 0 
+state: 0 
+numCpus: 0 
+nodePresentBitMap: 0x01 
+busIio: 0x00 0x00 0x00 0x00
+busUncore: 0x7F 0x00 0x00 0x00 
+mmCfgBase: 0x40000000 
+
+
+******* Collecting Early System Information - START *******
+  SBSP Socket: 0   Stepping: 0x07   Total Cbos: 06   Cbo List: 0x3F  
+
+  TotCpus: 2  CpuList: 0x03 
+  busIio: 0x00 0x80 0x00 0x00 
+  busUncore: 0x7F 0xFF 0x00 0x00 
+  Reset Type: Warm Reset   Link Speed: Fast Speed
+******* Collecting Early System Information - END   *******
+
+
+******* Setting up Minimum Path - START *******
+
+ Constructing SBSP minimum path Topology Tree 
+ -------------------------------------------- 
+
+ Adding SBSP (CPU0) to the tree
+   CPU0 Link Exchange : LEP0(1,CPU1) : LEP1(0,CPU1)
+
+
+ Adding CPU1 to the tree
+   Setting path between SBSP and CPU1. 
+   In SBSP setting route to CPU1 using port 0. 
+   In CPU1 using port 1 to set the R2PCIe route. 
+
+   CPU1 Link Exchange : LEP0(1,CPU0) : LEP1(0,CPU0)
+
+
+SBSP Minimum Path Tree
+----------------------
+Index  Socket  ParentPort  Hop  ParentIndex
+ 00     CPU0    --         0     --
+ 01     CPU1    01         1     00
+******* Setting up Minimum Path - END   *******
+
+
+******* Check for QPI Topology Degradation - START *******
+
+
+******* Check for QPI Topology Degradation - END *******
+
+
+******* Checking QPIRC Input Structure - START *******
+    System Topology: 2S EP 
+******* Checking QPIRC Input Structure - END   *******
+
+
+******* Allocate RTIDs - START *******
+    Local  RTIDs:  Tot - 80   WB - 01   Ubox - 00   Isoc - 06   TotCbo - 73   PerCbo - 12   Extra - 01
+    Remote RTIDs:  Tot - 48   WB - 01   Ubox - 03   Isoc - 06   TotCbo - 38   PerCbo - 06   Extra - 02
+    Found ISOC RTID Common Base 07 
+
+ ******      RTID straddles into ExtRTID sapce for Cbo 4  ********
+ ******      Not enough extra RTIDs; need to adjust few pool bases  ********
+
+ RTID Allocation Table
+ ---------------------
+
+          Local          Neighbor
+          -----          --------
+  WB      00  01         00  01 
+  UBOX    00  00         01  03 
+  ISOC    07  06         07  06 
+  CBO00   01  06         04  03 
+  CBO00   13  06         13  03 
+  CBO01   19  06         16  03 
+  CBO01   25  06         19  03 
+  CBO02   31  06         22  03 
+  CBO02   37  06         25  03 
+  CBO03   43  06         28  03 
+  CBO03   49  06         31  03 
+  CBO04   59  05         34  03 
+  CBO04   64  07         37  03 
+  CBO05   55  04         40  03 
+  CBO05   71  08         43  03 
+  CBO06   00  00         00  00 
+  CBO06   00  00         00  00 
+  CBO07   00  00         00  00 
+  CBO07   00  00         00  00 
+  EXTRA   00  01         00  02 
+
+
+ RBT/HomeTracker Base Allocation Map
+ -----------------------------------
+
+        S0    S1
+  S0    00    80    
+  S1    00    48    
+
+ RBT/HomeTracker Size Allocation Map
+ -----------------------------------
+
+        S0    S1
+  S0    80    48    
+  S1    48    80    
+
+
+******* Allocate RTIDs - END *******
+
+
+******* Cacluate Resource Allocation - START *******
+
+CPU Resource Allocation
+-----------------------
+CPU0   Bus: 0x00 - 0x7F  IO: 0x0000 - 0x9FFF  IOAPIC: 0xFEC00000 - 0xFEC3FFFF  MMIOL: 0x50000000 - 0xCFFFFFFF  MMIOH: 0x00003C00 00000000 - 0x00003C0F FFFFFFFF
+CPU1   Bus: 0x80 - 0xFF  IO: 0xA000 - 0xFFFF  IOAPIC: 0xFEC40000 - 0xFEC7FFFF  MMIOL: 0xD0000000 - 0xFBFFFFFF  MMIOH: 0x00003C10 00000000 - 0x00003C1F FFFFFFFF
+
+******* Cacluate Resource Allocation - END   *******
+
+
+******* Check for QPI Topology change across reset - START *******
+
+
+******* Check for QPI Topology change across reset - END *******
+
+
+******* Phy/Link Updates On Warm Reset - START *******
+  Force unused links to disabled/low power state.
+QPI Freq is currently 72.
+******* Phy/Link Updates On Warm Reset - END *******
+
+
+******* Sync Up PBSPs - START *******
+******* Sync Up PBSPs - END   *******
+
+
+******* Topology Dicovery and Optimum Route Calculation - START *******
+
+ Constructing Topology Tree for CPU0 
+ Calculating Route for CPU0 
+
+ Constructing Topology Tree for CPU1 
+ Calculating Route for CPU1 
+
+CPU0 Topology Tree
+-------------------
+Index  Socket  ParentSocket  ParentPort  ParentIndex  Hop
+ 00     CPU0       --            --          --        0
+ 01     CPU1      CPU0           01          00        1
+
+CPU1 Topology Tree
+-------------------
+Index  Socket  ParentSocket  ParentPort  ParentIndex  Hop
+ 00     CPU1       --            --          --        0
+ 01     CPU0      CPU1           01          00        1
+
+
+CPU 0 Routing Table
+-------------------
+Cbo    DestSocket  Port
+Even  CPU1       0
+Odd   CPU1       1
+
+
+CPU 1 Routing Table
+-------------------
+Cbo    DestSocket  Port
+Even  CPU0       0
+Odd   CPU0       1
+
+
+******* Topology Dicovery and Optimum Route Calculation - END   *******
+
+
+******* Program Optimum Route Table Settings - START *******
+******* Program Optimum Route Table Settings - END   *******
+
+
+******* Program Final IO SAD Setting - START *******
+
+ Set CPU0 IO SAD Entries. 
+ ------------------------ 
+
+ Set CPU1 IO SAD Entries. 
+ ------------------------ 
+******* Program Final IO SAD Setting - END   *******
+
+
+******* Program Misc. QPI Parameters - START *******
+******* Program Misc. QPI Parameters - END   *******
+
+
+******* Program Home Agent Credits - START *******
+******* Program Home Agent Credits - END   *******
+
+
+******* Program Home tracker and Route Back Table - START *******
+******* Program Home tracker and Route Back Table - END   *******
+
+
+******* Program System Coherency Registers - START *******
+******* Program System Coherency Registers - END   *******
+
+
+******* Check for S3 Resume - START *******
+******* Check for S3 Resume - END   *******
+
+
+******* Collect Previous Boot Error - START *******
+******* Collect Previous Boot Error - END   *******
+
+
+******* QPI Output Structure *******
+OutLegacyVgaSoc: 0
+OutIsocEn: 1
+OutIsocAzaliaVc1En: 1
+QpiCurrentLinkSpeedMode: 1 (FAST)
+OutQpiLinkSpeed: 2
+OutQpiLinkL0sEn: 0
+OutQpiLinkL0pEn: 0
+OutQpiLinkL1En: 0
+OutIioUniphyDisable: 0, 0, 0, 0
+******* QPIRC Exit  *******
+
+QPI Init completed! Reset Requested: 0
+SetBIOSInitDone: Setting RST_CPL bit1 everywhere...
+BIOS_RESTCPL_1 set on node 1
+BIOS_RESTCPL_1 set on node 0
+SetBIOSInitDone: Clear DMICtrlAutoPmCmplt...
+Pipe Init starting...Pass PIPE_DISPATCH_SYNCH_PSYSHOST
+Pass PeiPipeSlaveInit
+Pipe Init completed! Reset Requested: 0
+CPU Feature Early Config starting...CPU miscellaneous configuration...CPUMISC Current Node:         00
+CPUMISC Current Node:         01
+completed!
+CPU Feature Early Config completed! Reset Requested: 0
+START_MRC_RUN
+bootMode = NormalBoot. Taking the normal boot path through MRC.
+subBootMode = WarmBootFast. Taking the fast warm boot sub-path through MRC.
+Single-Threaded MRC Initialization Enabled
+Initialize Throttling (Early)
+Checkpoint Code: Socket 0, 0xB0, 0x00, 0x0000
+N0: Detect DIMM Config
+
+DIMM Detect time            0 ms
+Initialize Throttling (Early)
+Checkpoint Code: Socket 0, 0xB0, 0x00, 0x0000
+N1: Detect DIMM Config
+
+DIMM Detect time            0 ms
+Checkpoint Code: Socket 0, 0xB1, 0x00, 0x0000
+Memory behind processor 0 running at DDR3-1333
+Memory behind processor 1 running at DDR3-1333
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+Setting N0 Vdd to 1.5V
+Setting N1 Vdd to 1.5V
+Checkpoint Code: Socket 0, 0xB4, 0x00, 0x0000
+Check DIMM population
+
+CheckDimmRanks time            0 ms
+Checkpoint Code: Socket 0, 0xB2, 0x00, 0x0000
+Gather SPD Data
+
+GatherSPDData time            183 ms
+Checkpoint Code: Socket 0, 0xB3, 0x00, 0x0000
+Global Early Configuration
+Checkpoint Code: Socket 0, 0xB5, 0x00, 0x0000
+Channel Early Configuration
+Checkpoint Code: Socket 0, 0xB6, 0x00, 0x0000
+JEDEC Initialization Sequence
+Checkpoint Code: Socket 0, 0xB7, 0x00, 0x0000
+Initialize DDR Channels
+Checkpoint Code: Socket 0, 0xB7, 0x0B, 0x0000
+Channel Late Configuration
+Checkpoint Code: Socket 0, 0xB8, 0x00, 0x0000
+Initialize Throttling
+
+Checkpoint Code: Socket 0, 0xB7, 0x0C, 0x0000
+Clear Errors
+Checkpoint Code: Socket 0, 0xB2, 0x00, 0x0000
+Gather SPD Data
+
+GatherSPDData time            183 ms
+Checkpoint Code: Socket 0, 0xB3, 0x00, 0x0000
+Global Early Configuration
+Checkpoint Code: Socket 0, 0xB5, 0x00, 0x0000
+Channel Early Configuration
+Checkpoint Code: Socket 0, 0xB6, 0x00, 0x0000
+JEDEC Initialization Sequence
+Checkpoint Code: Socket 0, 0xB7, 0x00, 0x0000
+Initialize DDR Channels
+Checkpoint Code: Socket 0, 0xB7, 0x0B, 0x0000
+Channel Late Configuration
+Checkpoint Code: Socket 0, 0xB8, 0x00, 0x0000
+Initialize Throttling
+
+Checkpoint Code: Socket 0, 0xB7, 0x0C, 0x0000
+Clear Errors
+Checkpoint Code: Socket 0, 0xB4, 0x00, 0x0000
+Checkpoint Code: Socket 0, 0xBB, 0x00, 0x0000
+Checkpoint Code: Socket 0, 0xBC, 0x00, 0x0000
+Set RAS Config
+N0: Independent channel mode enabled
+N1: Independent channel mode enabled
+
+Total MRC latency = 1538 ms
+
+START_DIMMINFO_TABLE
+
+==============================================================================
+START_SOCKET_0_TABLE
+JKT Unknown Stepping - Socket R
+==============================================================================
+S|    Channel 0     |    Channel 1     |    Channel 2     |    Channel 3     |
+==============================================================================
+0|       Micron     |       Micron     |       Micron     |       Micron     |
+ |       Micron     |       Micron     |       Micron     |       Micron     |
+ |        IDT       |        IDT       |        IDT       |        IDT       |
+ |   16GB(4Gbx4)    |   16GB(4Gbx4)    |   16GB(4Gbx4)    |   16GB(4Gbx4)    |
+ |   RDIMM R/C-E    |   RDIMM R/C-E    |   RDIMM R/C-E    |   RDIMM R/C-E    |
+ |    1600 9-9-9    |    1600 9-9-9    |    1600 9-9-9    |    1600 9-9-9    |
+ |     ww272014     |     ww272014     |     ww272014     |     ww272014     |
+ |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+1|  Not installed   |  Not installed   |  Not installed   |  Not installed   |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+2|  Not installed   |  Not installed   |  Not installed   |  Not installed   |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+STOP_SOCKET_0_TABLE
+======================================================================================
+
+==============================================================================
+START_SOCKET_1_TABLE
+JKT Unknown Stepping - Socket R
+==============================================================================
+S|    Channel 0     |    Channel 1     |    Channel 2     |    Channel 3     |
+==============================================================================
+0|       Micron     |       Micron     |       Micron     |       Micron     |
+ |       Micron     |       Micron     |       Micron     |       Micron     |
+ |        IDT       |        IDT       |        IDT       |        IDT       |
+ |   16GB(4Gbx4)    |   16GB(4Gbx4)    |   16GB(4Gbx4)    |   16GB(4Gbx4)    |
+ |   RDIMM R/C-E    |   RDIMM R/C-E    |   RDIMM R/C-E    |   RDIMM R/C-E    |
+ |    1600 9-9-9    |    1600 9-9-9    |    1600 9-9-9    |    1600 9-9-9    |
+ |     ww272014     |     ww272014     |     ww272014     |     ww272014     |
+ |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+1|  Not installed   |  Not installed   |  Not installed   |  Not installed   |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+2|  Not installed   |  Not installed   |  Not installed   |  Not installed   |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+STOP_SOCKET_1_TABLE
+======================================================================================
+======================================================================================
+                    |  Socket 0  |  Socket 1  |  Socket 2  |  Socket 3  |   System   |
+======================================================================================
+Active Memory       |     64GB   |     64GB   |     N/A    |     N/A    |    128GB   |
+DDR3 Freq           |            |            |            |            |  DDR3-1333 |
+Ch0 CL-RCD-RP-CMD   | 9-9-9-1n   | 9-9-9-1n   |            |            |            |
+Ch1 CL-RCD-RP-CMD   | 9-9-9-1n   | 9-9-9-1n   |            |            |            |
+Ch2 CL-RCD-RP-CMD   | 9-9-9-1n   | 9-9-9-1n   |            |            |            |
+Ch3 CL-RCD-RP-CMD   | 9-9-9-1n   | 9-9-9-1n   |            |            |            |
+DDR3 Vdd            |            |            |            |            |    1.5v    |
+ECC Checking        |            |            |            |            |     On     |
+Patrol/Demand Scrub |            |            |            |            | On  /  Off |
+RAS Mode            |            |            |            |            |   Indep    |
+Paging Policy       |            |            |            |            | Adapt Open |
+Data Scrambling     |            |            |            |            |     Off    |
+======================================================================================
+
+STOP_DIMMINFO_TABLE
+STOP_MRC_RUN
+Checkpoint Code: Socket 0, 0xBF, 0x00, 0x0000
+sysHost structure @ FF0C4EF4  has been copied to memory address 00100000, size = 00039AF4 
+STOP_MRC_RUN
+Reset Requested: 0
+Pipe Exit starting...Pipe Exit completed! Reset Requested: 0
+Checking for Reset Requests ...  None 
+Continue with system BIOS POST ...
+
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 1
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 201
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 401
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 601
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 801
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: A01
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: C01
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: E01
+�
+�
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+�
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Copyright (C) 2018 American Megatrends, Inc.                                    
+Copyright (C) 2009-2018 Fujitsu Technology Solutions                            
+BIOS V4.6.5.3 R1.18.0 for D3118-A1x                                             
+                                                                                
+24 logical CPUs installed.                                                      
+131072 MB memory installed.                                                     
+Version 2.15.1227. Copyright (C) 2012 American Megatrends, Inc.                 
+BIOS Date: 06/27/2018 13:47:35 Ver: R1.18.0 for D3118-A1                        
+Press <F2> to enter Setup or <F12> to enter Boot Menu.                          
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BIOS Date: 06/27/2018 13:47:35 Ver: R1.18.0 for D3118-A1       
+Press <F2> to enter Setup or <F12> to enter Boot Menu.         
+                                                               
+DIMM-1A: Non Fujitsu Memory Module detected - Warranty restricted!
+                                                                  
+DIMM-1B: Non Fujitsu Memory Module detected - Warranty restricted!
+                                                                  
+DIMM-1C: Non Fujitsu Memory Module detected - Warranty restricted!
+                                                                  
+DIMM-1D: Non Fujitsu Memory Module detected - Warranty restricted!
+                                                                  
+DIMM-1E: Non Fujitsu Memory Module detected - Warranty restricted!
+                                                                  
+DIMM-1F: Non Fujitsu Memory Module detected - Warranty restricted!
+                                                                  
+DIMM-1G: Non Fujitsu Memory Module detected - Warranty restricted!
+                                                                  
+DIMM-1H: Non Fujitsu Memory Module detected - Warranty restricted!
+                                                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to GRUB!
+
+error: serial port `com1' isn't found.
+error: terminal `serial' isn't found.
+error: terminal `serial' isn't found.
+
+
+
+
+
+
+
+
+
+
+
+######################### ANOTHER
+
+
+ * /lib/rc/cache is not writable!
+ * Unable to save dependency cache
+ * Remounting remaining filesystems read-only ...
+ *   Remounting / read only ...
+ [ ok ]
+ [ ok ]
+[   67.780243] reboot: Restarting system
+
+RC Version: 01000018 
+host = FF0C4EF4  (pointer to sysHost structure)
+Legacy Serial Debug Enabled
+
+QPI Init starting...
+
+
+******* QPI Setup Structure *******
+Bus   Ratio: 1 1 1 1
+IO    Ratio: 3 2 2 1
+MMIOL Ratio: 6 2 2 1
+LegacyVgaSoc: 0
+MmioP2pDis: 0
+IsocAzaliaVc1En: 1
+DebugPrintLevel: 15
+AltRtid2S: 0
+QpiLinkSpeedMode: 1 (FAST)
+QpiLinkSpeed: 6
+QpiLinkL0sEn: 0
+QpiLinkL0pEn: 0
+QpiLinkL1En: 0
+QpiLbEn: 0
+
+
+******* Common Setup Structure *******
+mmCfgBase: 0x40000000 
+mmCfgSize: 0x10000000
+mmiohSize: 64 GB 
+numaEn: 1 
+isocEn: 1 
+dcaEn: 1 
+
+
+******* Common Var Structure *******
+resetRequired: 0 
+state: 0 
+numCpus: 0 
+nodePresentBitMap: 0x01 
+busIio: 0x00 0x00 0x00 0x00
+busUncore: 0x7F 0x00 0x00 0x00 
+mmCfgBase: 0x40000000 
+
+
+******* Collecting Early System Information - START *******
+  SBSP Socket: 0   Stepping: 0x07   Total Cbos: 06   Cbo List: 0x3F  
+
+  TotCpus: 2  CpuList: 0x03 
+  busIio: 0x00 0x80 0x00 0x00 
+  busUncore: 0x7F 0xFF 0x00 0x00 
+  Reset Type: Warm Reset   Link Speed: Fast Speed
+******* Collecting Early System Information - END   *******
+
+
+******* Setting up Minimum Path - START *******
+
+ Constructing SBSP minimum path Topology Tree 
+ -------------------------------------------- 
+
+ Adding SBSP (CPU0) to the tree
+   CPU0 Link Exchange : LEP0(1,CPU1) : LEP1(0,CPU1)
+
+
+ Adding CPU1 to the tree
+   Setting path between SBSP and CPU1. 
+   In SBSP setting route to CPU1 using port 0. 
+   In CPU1 using port 1 to set the R2PCIe route. 
+
+   CPU1 Link Exchange : LEP0(1,CPU0) : LEP1(0,CPU0)
+
+
+SBSP Minimum Path Tree
+----------------------
+Index  Socket  ParentPort  Hop  ParentIndex
+ 00     CPU0    --         0     --
+ 01     CPU1    01         1     00
+******* Setting up Minimum Path - END   *******
+
+
+******* Check for QPI Topology Degradation - START *******
+
+
+******* Check for QPI Topology Degradation - END *******
+
+
+******* Checking QPIRC Input Structure - START *******
+    System Topology: 2S EP 
+******* Checking QPIRC Input Structure - END   *******
+
+
+******* Allocate RTIDs - START *******
+    Local  RTIDs:  Tot - 80   WB - 01   Ubox - 00   Isoc - 06   TotCbo - 73   PerCbo - 12   Extra - 01
+    Remote RTIDs:  Tot - 48   WB - 01   Ubox - 03   Isoc - 06   TotCbo - 38   PerCbo - 06   Extra - 02
+    Found ISOC RTID Common Base 07 
+
+ ******      RTID straddles into ExtRTID sapce for Cbo 4  ********
+ ******      Not enough extra RTIDs; need to adjust few pool bases  ********
+
+ RTID Allocation Table
+ ---------------------
+
+          Local          Neighbor
+          -----          --------
+  WB      00  01         00  01 
+  UBOX    00  00         01  03 
+  ISOC    07  06         07  06 
+  CBO00   01  06         04  03 
+  CBO00   13  06         13  03 
+  CBO01   19  06         16  03 
+  CBO01   25  06         19  03 
+  CBO02   31  06         22  03 
+  CBO02   37  06         25  03 
+  CBO03   43  06         28  03 
+  CBO03   49  06         31  03 
+  CBO04   59  05         34  03 
+  CBO04   64  07         37  03 
+  CBO05   55  04         40  03 
+  CBO05   71  08         43  03 
+  CBO06   00  00         00  00 
+  CBO06   00  00         00  00 
+  CBO07   00  00         00  00 
+  CBO07   00  00         00  00 
+  EXTRA   00  01         00  02 
+
+
+ RBT/HomeTracker Base Allocation Map
+ -----------------------------------
+
+        S0    S1
+  S0    00    80    
+  S1    00    48    
+
+ RBT/HomeTracker Size Allocation Map
+ -----------------------------------
+
+        S0    S1
+  S0    80    48    
+  S1    48    80    
+
+
+******* Allocate RTIDs - END *******
+
+
+******* Cacluate Resource Allocation - START *******
+
+CPU Resource Allocation
+-----------------------
+CPU0   Bus: 0x00 - 0x7F  IO: 0x0000 - 0x9FFF  IOAPIC: 0xFEC00000 - 0xFEC3FFFF  MMIOL: 0x50000000 - 0xCFFFFFFF  MMIOH: 0x00003C00 00000000 - 0x00003C0F FFFFFFFF
+CPU1   Bus: 0x80 - 0xFF  IO: 0xA000 - 0xFFFF  IOAPIC: 0xFEC40000 - 0xFEC7FFFF  MMIOL: 0xD0000000 - 0xFBFFFFFF  MMIOH: 0x00003C10 00000000 - 0x00003C1F FFFFFFFF
+
+******* Cacluate Resource Allocation - END   *******
+
+
+******* Check for QPI Topology change across reset - START *******
+
+
+******* Check for QPI Topology change across reset - END *******
+
+
+******* Phy/Link Updates On Warm Reset - START *******
+  Force unused links to disabled/low power state.
+QPI Freq is currently 72.
+******* Phy/Link Updates On Warm Reset - END *******
+
+
+******* Sync Up PBSPs - START *******
+******* Sync Up PBSPs - END   *******
+
+
+******* Topology Dicovery and Optimum Route Calculation - START *******
+
+ Constructing Topology Tree for CPU0 
+ Calculating Route for CPU0 
+
+ Constructing Topology Tree for CPU1 
+ Calculating Route for CPU1 
+
+CPU0 Topology Tree
+-------------------
+Index  Socket  ParentSocket  ParentPort  ParentIndex  Hop
+ 00     CPU0       --            --          --        0
+ 01     CPU1      CPU0           01          00        1
+
+CPU1 Topology Tree
+-------------------
+Index  Socket  ParentSocket  ParentPort  ParentIndex  Hop
+ 00     CPU1       --            --          --        0
+ 01     CPU0      CPU1           01          00        1
+
+
+CPU 0 Routing Table
+-------------------
+Cbo    DestSocket  Port
+Even  CPU1       0
+Odd   CPU1       1
+
+
+CPU 1 Routing Table
+-------------------
+Cbo    DestSocket  Port
+Even  CPU0       0
+Odd   CPU0       1
+
+
+******* Topology Dicovery and Optimum Route Calculation - END   *******
+
+
+******* Program Optimum Route Table Settings - START *******
+******* Program Optimum Route Table Settings - END   *******
+
+
+******* Program Final IO SAD Setting - START *******
+
+ Set CPU0 IO SAD Entries. 
+ ------------------------ 
+
+ Set CPU1 IO SAD Entries. 
+ ------------------------ 
+******* Program Final IO SAD Setting - END   *******
+
+
+******* Program Misc. QPI Parameters - START *******
+******* Program Misc. QPI Parameters - END   *******
+
+
+******* Program Home Agent Credits - START *******
+******* Program Home Agent Credits - END   *******
+
+
+******* Program Home tracker and Route Back Table - START *******
+******* Program Home tracker and Route Back Table - END   *******
+
+
+******* Program System Coherency Registers - START *******
+******* Program System Coherency Registers - END   *******
+
+
+******* Check for S3 Resume - START *******
+******* Check for S3 Resume - END   *******
+
+
+******* Collect Previous Boot Error - START *******
+******* Collect Previous Boot Error - END   *******
+
+
+******* QPI Output Structure *******
+OutLegacyVgaSoc: 0
+OutIsocEn: 1
+OutIsocAzaliaVc1En: 1
+QpiCurrentLinkSpeedMode: 1 (FAST)
+OutQpiLinkSpeed: 2
+OutQpiLinkL0sEn: 0
+OutQpiLinkL0pEn: 0
+OutQpiLinkL1En: 0
+OutIioUniphyDisable: 0, 0, 0, 0
+******* QPIRC Exit  *******
+
+QPI Init completed! Reset Requested: 0
+SetBIOSInitDone: Setting RST_CPL bit1 everywhere...
+BIOS_RESTCPL_1 set on node 1
+BIOS_RESTCPL_1 set on node 0
+SetBIOSInitDone: Clear DMICtrlAutoPmCmplt...
+Pipe Init starting...Pass PIPE_DISPATCH_SYNCH_PSYSHOST
+Pass PeiPipeSlaveInit
+Pipe Init completed! Reset Requested: 0
+CPU Feature Early Config starting...CPU miscellaneous configuration...CPUMISC Current Node:         00
+CPUMISC Current Node:         01
+completed!
+CPU Feature Early Config completed! Reset Requested: 0
+START_MRC_RUN
+
+sizeof sysHost = 236276
+
+sizeof sysHostSetup = 868
+
+struct sysHost.common {
+  options:         00000000
+      PROMOTE_WARN_EN     0
+      HALT_ON_ERROR_EN    0
+  lowGap:          30
+  highGap:         01
+  serialDebugMsgLvl:02
+  bsdBreakpoint:   00
+  maxAddrMem:      40000
+  debugPort:       80
+  nvramPtr:        00000000
+  sysHostBufferPtr:00000000
+  mmCfgBase:       40000000
+  mmCfgSize:       10000000
+  mmiohSize:       00000040
+  pchumaEn:        00
+  numaEn:          01
+  isocEn:          01
+  dcaEn:           01
+  bdatEn:          00
+  consoleComPort:  3F8
+
+struct sysHost.setup.mem {
+  options:         54024349
+      TEMPHIGH_EN         1
+      PDWN_IBT_OFF_EN     0
+      PDWN_SR_CKE_MODE    0
+      OPP_SELF_REF_EN     1
+      MDLL_SHUT_DOWN_EN   0
+      PAGE_POLICY         0
+      ALLOW2XREF_EN       1
+      MULTI_THREAD_MRC_EN 0
+      ADAPTIVE_PAGE_EN    1
+      CMD_CLK_TRAINING_EN 1
+      SCRAMBLE_EN         0
+      RX_SENSE_AMP_EN     0
+      DDR_RESET_LOOP  0
+      NUMA_AWARE          1
+      ECC_CHECK_EN        1
+      BALANCED_4WAY_EN    0
+      SPLIT_BELOW_4GB_EN  0
+      RAS_TO_INDP_EN      0
+      MARGIN_RANKS_EN     0
+      MEM_OVERRIDE_EN     1
+      DRAMDLL_OFF_PD_EN   0
+      MEMORY_TEST_EN      1
+      MEMORY_TEST_FAST_BOOT_EN 0
+      ATTEMPT_FAST_BOOT   1
+      SW_MEMORY_TEST_EN   0
+
+struct sysHost.setup.mem {
+  enforcePOR:      00
+  RASmode:         00
+  RASmodeEx:       04
+  ddrFreqLimit:    07
+  nodeInter:       01
+  chInter:         04
+  rankInter:       08
+  dimmTypeSupport: 02
+  vrefStepSize:    00
+  vrefAbsMaxSteps: 00
+  vrefOpLimitSteps:00
+  pdwnCkMode:      04
+  MemPwrSave:      01
+  ckeThrottling:   03
+  olttPeakBWLIMITPercent: 32
+  thermalThrottlingOptions:  08
+      CLTT_EN             1
+      OLTT_EN             0
+      MH_OUTPUT_EN        0
+      MH_SENSE_EN         0
+  dramraplen:      02
+  dramraplbwlimittf: 10
+  electricalThrottling:  02
+  altitude:        02
+  forceRankMult:   00
+  lrdimmModuleDelay: 01
+  vrefDelayUs:     00
+  vddDelayUs:      00
+  cmdClkEyeWidth:  64
+  rmtPatternLength:3E8
+  patrolScrubDuration:18
+  spareErrTh:      0x0F
+  memTestLoops:    00
+  errLedBitOverride: 00
+  scrambleSeedLow: 0000A02B
+  scrambleSeedHigh:0000D395
+  ADREn:           00
+  check_pm_sts:    00
+  check_platform_detect: 00
+  struct ddrIMCSetup[00] {
+    enabled:        00000001
+    ddrVddLimit:    00
+    struct ddrChannelSetup[00] {
+      enabled:       01
+      numDimmSlots:  02
+      batterybacked: 00
+      struct ddrDimmSetup[00] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+      struct ddrDimmSetup[01] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+      struct ddrDimmSetup[02] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+    };
+    struct ddrChannelSetup[01] {
+      enabled:       01
+      numDimmSlots:  02
+      batterybacked: 00
+      struct ddrDimmSetup[00] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+      struct ddrDimmSetup[01] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+      struct ddrDimmSetup[02] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+    };
+    struct ddrChannelSetup[02] {
+      enabled:       01
+      numDimmSlots:  02
+      batterybacked: 00
+      struct ddrDimmSetup[00] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+      struct ddrDimmSetup[01] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+      struct ddrDimmSetup[02] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+    };
+    struct ddrChannelSetup[03] {
+      enabled:       01
+      numDimmSlots:  02
+      batterybacked: 00
+      struct ddrDimmSetup[00] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+      struct ddrDimmSetup[01] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+      struct ddrDimmSetup[02] {
+        mapOut[00]: 00
+        mapOut[01]: 00
+        mapOut[02]: 00
+        mapOut[03]: 00
+    };
+    };
+  struct memTiming {
+    nCL:            00
+    nRP:            00
+    nRCD:           00
+    nRRD:           00
+    nWTR:           00
+    nRAS:           00
+    nRTP:           00
+    nWR:            00
+    nFAW:           00
+    nRC:            00
+    nCWL:           00
+    nCMDRate:       00
+    ddrFreqLimit:   00
+    vdd:            00
+    ucVolt:         00
+    casSup:         00
+    tREFI:          00
+    nRFC:           00
+    ddrFreq:        00
+  };
+  meRequestedSize:  00000020
+  };
+  serialDebugMsgLvl:   02
+}; //struct sysHost.setup
+
+bootMode = NormalBoot. Taking the normal boot path through MRC.
+subBootMode = WarmBootFast. Taking the fast warm boot sub-path through MRC.
+Single-Threaded MRC Initialization Enabled
+Initialize Throttling (Early)
+Checkpoint Code: Socket 0, 0xB0, 0x00, 0x0000
+N0: Detect DIMM Config
+
+DIMM Detect time            0 ms
+Initialize Throttling (Early)
+Checkpoint Code: Socket 0, 0xB0, 0x00, 0x0000
+N1: Detect DIMM Config
+
+DIMM Detect time            0 ms
+Checkpoint Code: Socket 0, 0xB1, 0x00, 0x0000
+Memory behind processor 0 running at DDR3-1333
+Memory behind processor 1 running at DDR3-1333
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+SMBUS issue retry... force SMBUS Reset 
+Setting N0 Vdd to 1.5V
+Setting N1 Vdd to 1.5V
+Checkpoint Code: Socket 0, 0xB4, 0x00, 0x0000
+N0.C0.D0: dimmMtr: 0x000C5011
+N0.C0.D1: dimmMtr: 0x000F0000
+N0.C0.D2: dimmMtr: 0x000F0000
+N0.C1.D0: dimmMtr: 0x000C5011
+N0.C1.D1: dimmMtr: 0x000F0000
+N0.C1.D2: dimmMtr: 0x000F0000
+N0.C2.D0: dimmMtr: 0x000C5011
+N0.C2.D1: dimmMtr: 0x000F0000
+N0.C2.D2: dimmMtr: 0x000F0000
+N0.C3.D0: dimmMtr: 0x000C5011
+N0.C3.D1: dimmMtr: 0x000F0000
+N0.C3.D2: dimmMtr: 0x000F0000
+N1.C0.D0: dimmMtr: 0x000C5011
+N1.C0.D1: dimmMtr: 0x000F0000
+N1.C0.D2: dimmMtr: 0x000F0000
+N1.C1.D0: dimmMtr: 0x000C5011
+N1.C1.D1: dimmMtr: 0x000F0000
+N1.C1.D2: dimmMtr: 0x000F0000
+N1.C2.D0: dimmMtr: 0x000C5011
+N1.C2.D1: dimmMtr: 0x000F0000
+N1.C2.D2: dimmMtr: 0x000F0000
+N1.C3.D0: dimmMtr: 0x000C5011
+N1.C3.D1: dimmMtr: 0x000F0000
+N1.C3.D2: dimmMtr: 0x000F0000
+Check DIMM population
+N0.C0: RankUsed = 0x1
+N0.C0: RankCnfg = 0xFFFF
+N0.C0: TermRnkMsk = 0x2000001
+N0.C1: RankUsed = 0x1
+N0.C1: RankCnfg = 0xFFFF
+N0.C1: TermRnkMsk = 0x2000001
+N0.C2: RankUsed = 0x1
+N0.C2: RankCnfg = 0xFFFF
+N0.C2: TermRnkMsk = 0x2000001
+N0.C3: RankUsed = 0x1
+N0.C3: RankCnfg = 0xFFFF
+N0.C3: TermRnkMsk = 0x2000001
+N1.C0: RankUsed = 0x1
+N1.C0: RankCnfg = 0xFFFF
+N1.C0: TermRnkMsk = 0x2000001
+N1.C1: RankUsed = 0x1
+N1.C1: RankCnfg = 0xFFFF
+N1.C1: TermRnkMsk = 0x2000001
+N1.C2: RankUsed = 0x1
+N1.C2: RankCnfg = 0xFFFF
+N1.C2: TermRnkMsk = 0x2000001
+N1.C3: RankUsed = 0x1
+N1.C3: RankCnfg = 0xFFFF
+N1.C3: TermRnkMsk = 0x2000001
+RAS EX modes on warm fast boot = 4 
+
+CheckDimmRanks time            135 ms
+Checkpoint Code: Socket 0, 0xB2, 0x00, 0x0000
+Gather SPD Data
+
+GatherSPDData time            183 ms
+Checkpoint Code: Socket 0, 0xB3, 0x00, 0x0000
+Global Early Configuration
+Checkpoint Code: Socket 0, 0xB5, 0x00, 0x0000
+Channel Early Configuration
+Memory Timings:
+N0.C0: nCL  = 9
+N0.C0: nCWL = 7
+N0.C0: nRP  = 9
+N0.C0: nRCD = 9
+N0.C0: nRRD = 4
+N0.C0: nWTR = 5
+N0.C0: nRAS = 24
+N0.C0: nRTP = 5
+N0.C0: nWR  = 10
+N0.C0: nFAW = 20
+N0.C0: nRC  = 33
+N0.C0: nRFC = 174
+N0.C0: casSup = 0xFE
+N0.C0: t_stagger_ref = 0x86
+N0.C0.D0.R0: DRAM Rtt_wr = 0, Rtt_nom = 60
+N0.C0.D0.R1: DRAM Rtt_wr = 0, Rtt_nom = 60
+Memory Timings:
+N0.C1: nCL  = 9
+N0.C1: nCWL = 7
+N0.C1: nRP  = 9
+N0.C1: nRCD = 9
+N0.C1: nRRD = 4
+N0.C1: nWTR = 5
+N0.C1: nRAS = 24
+N0.C1: nRTP = 5
+N0.C1: nWR  = 10
+N0.C1: nFAW = 20
+N0.C1: nRC  = 33
+N0.C1: nRFC = 174
+N0.C1: casSup = 0xFE
+N0.C1: t_stagger_ref = 0x86
+N0.C1.D0.R0: DRAM Rtt_wr = 0, Rtt_nom = 60
+N0.C1.D0.R1: DRAM Rtt_wr = 0, Rtt_nom = 60
+Memory Timings:
+N0.C2: nCL  = 9
+N0.C2: nCWL = 7
+N0.C2: nRP  = 9
+N0.C2: nRCD = 9
+N0.C2: nRRD = 4
+N0.C2: nWTR = 5
+N0.C2: nRAS = 24
+N0.C2: nRTP = 5
+N0.C2: nWR  = 10
+N0.C2: nFAW = 20
+N0.C2: nRC  = 33
+N0.C2: nRFC = 174
+N0.C2: casSup = 0xFE
+N0.C2: t_stagger_ref = 0x86
+N0.C2.D0.R0: DRAM Rtt_wr = 0, Rtt_nom = 60
+N0.C2.D0.R1: DRAM Rtt_wr = 0, Rtt_nom = 60
+Memory Timings:
+N0.C3: nCL  = 9
+N0.C3: nCWL = 7
+N0.C3: nRP  = 9
+N0.C3: nRCD = 9
+N0.C3: nRRD = 4
+N0.C3: nWTR = 5
+N0.C3: nRAS = 24
+N0.C3: nRTP = 5
+N0.C3: nWR  = 10
+N0.C3: nFAW = 20
+N0.C3: nRC  = 33
+N0.C3: nRFC = 174
+N0.C3: casSup = 0xFE
+N0.C3: t_stagger_ref = 0x86
+N0.C3.D0.R0: DRAM Rtt_wr = 0, Rtt_nom = 60
+N0.C3.D0.R1: DRAM Rtt_wr = 0, Rtt_nom = 60
+Checkpoint Code: Socket 0, 0xB6, 0x00, 0x0000
+JEDEC Initialization Sequence
+Checkpoint Code: Socket 0, 0xB7, 0x00, 0x0000
+Initialize DDR Channels
+
+CAS To Receive Enable Data for t_rrdr on channel 0 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  1068  |  1072 
+Strobe  1: |  1053  |  1053 
+Strobe  2: |  1047  |  1046 
+Strobe  3: |  1033  |  1035 
+Strobe  4: |  1024  |  1023 
+Strobe  5: |  1029  |  1028 
+Strobe  6: |  1042  |  1043 
+Strobe  7: |  1052  |  1050 
+Strobe  8: |  1022  |  1020 
+Strobe  9: |  1073  |  1073 
+Strobe 10: |  1057  |  1058 
+Strobe 11: |  1048  |  1049 
+Strobe 12: |  1037  |  1038 
+Strobe 13: |  1026  |  1028 
+Strobe 14: |  1033  |  1033 
+Strobe 15: |  1046  |  1045 
+Strobe 16: |  1055  |  1054 
+Strobe 17: |  1025  |  1023 
+C0.D0: tRRDRDimm = 1
+N0.C0: tRRDR = 0
+N0.C0: tRRDD = 2
+N0.C0: tWWDR = 3
+
+CAS To Drive Enable Data for t_rrdr on channel 0 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  126  |  126 
+Strobe  1: |  123  |  124 
+Strobe  2: |  113  |  113 
+Strobe  3: |  107  |  108 
+Strobe  4: |   97  |   97 
+Strobe  5: |  111  |  112 
+Strobe  6: |  117  |  116 
+Strobe  7: |  126  |  125 
+Strobe  8: |  100  |   99 
+Strobe  9: |  130  |  130 
+Strobe 10: |  129  |  129 
+Strobe 11: |  117  |  115 
+Strobe 12: |  111  |  110 
+Strobe 13: |  101  |  100 
+Strobe 14: |  116  |  115 
+Strobe 15: |  120  |  119 
+Strobe 16: |  131  |  130 
+Strobe 17: |  106  |  105 
+C0: Cas2DrvEnRnMax = 131, Cas2DrvEnMin = 97
+C0: tWWDD before ODT adjustmen = 2
+N0.C0: tWWDD = 3
+N0.C0: tRWDRDD = 2
+N0.C0: tRWSR = 2
+N0.C0: tWRDRDD = 1
+
+CAS To Receive Enable Data for t_rrdr on channel 1 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  1048  |  1047 
+Strobe  1: |  1037  |  1036 
+Strobe  2: |  1024  |  1023 
+Strobe  3: |  1014  |  1014 
+Strobe  4: |  998  |  999 
+Strobe  5: |  1009  |  1009 
+Strobe  6: |  1021  |  1020 
+Strobe  7: |  1033  |  1031 
+Strobe  8: |  999  |  997 
+Strobe  9: |  1049  |  1049 
+Strobe 10: |  1041  |  1040 
+Strobe 11: |  1028  |  1028 
+Strobe 12: |  1018  |  1019 
+Strobe 13: |  1003  |  1001 
+Strobe 14: |  1013  |  1014 
+Strobe 15: |  1026  |  1025 
+Strobe 16: |  1037  |  1037 
+Strobe 17: |  1003  |  1001 
+C1.D0: tRRDRDimm = 1
+N0.C1: tRRDR = 0
+N0.C1: tRRDD = 2
+N0.C1: tWWDR = 3
+
+CAS To Drive Enable Data for t_rrdr on channel 1 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  129  |  128 
+Strobe  1: |  119  |  119 
+Strobe  2: |  113  |  113 
+Strobe  3: |  103  |  103 
+Strobe  4: |   98  |   97 
+Strobe  5: |  108  |  109 
+Strobe  6: |  116  |  115 
+Strobe  7: |  122  |  123 
+Strobe  8: |   97  |   98 
+Strobe  9: |  133  |  132 
+Strobe 10: |  124  |  125 
+Strobe 11: |  116  |  118 
+Strobe 12: |  108  |  108 
+Strobe 13: |  102  |  103 
+Strobe 14: |  113  |  112 
+Strobe 15: |  120  |  119 
+Strobe 16: |  127  |  128 
+Strobe 17: |  103  |  104 
+C1: Cas2DrvEnRnMax = 133, Cas2DrvEnMin = 97
+C1: tWWDD before ODT adjustmen = 2
+N0.C1: tWWDD = 3
+N0.C1: tRWDRDD = 2
+N0.C1: tRWSR = 2
+N0.C1: tWRDRDD = 1
+
+CAS To Receive Enable Data for t_rrdr on channel 2 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  1061  |  1061 
+Strobe  1: |  1048  |  1049 
+Strobe  2: |  1036  |  1036 
+Strobe  3: |  1030  |  1031 
+Strobe  4: |  1020  |  1020 
+Strobe  5: |  1033  |  1032 
+Strobe  6: |  1044  |  1045 
+Strobe  7: |  1054  |  1056 
+Strobe  8: |  1020  |  1021 
+Strobe  9: |  1064  |  1065 
+Strobe 10: |  1054  |  1054 
+Strobe 11: |  1039  |  1039 
+Strobe 12: |  1034  |  1035 
+Strobe 13: |  1022  |  1022 
+Strobe 14: |  1037  |  1036 
+Strobe 15: |  1048  |  1049 
+Strobe 16: |  1060  |  1058 
+Strobe 17: |  1022  |  1023 
+C2.D0: tRRDRDimm = 1
+N0.C2: tRRDR = 0
+N0.C2: tRRDD = 2
+N0.C2: tWWDR = 3
+
+CAS To Drive Enable Data for t_rrdr on channel 2 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  134  |  133 
+Strobe  1: |  124  |  124 
+Strobe  2: |  119  |  118 
+Strobe  3: |  106  |  105 
+Strobe  4: |   96  |   97 
+Strobe  5: |  102  |  102 
+Strobe  6: |  108  |  109 
+Strobe  7: |  118  |  117 
+Strobe  8: |   94  |   93 
+Strobe  9: |  138  |  137 
+Strobe 10: |  128  |  128 
+Strobe 11: |  122  |  123 
+Strobe 12: |  110  |  110 
+Strobe 13: |  101  |   99 
+Strobe 14: |  106  |  106 
+Strobe 15: |  113  |  112 
+Strobe 16: |  122  |  122 
+Strobe 17: |   99  |   99 
+C2: Cas2DrvEnRnMax = 138, Cas2DrvEnMin = 93
+C2: tWWDD before ODT adjustmen = 2
+N0.C2: tWWDD = 3
+N0.C2: tRWDRDD = 2
+N0.C2: tRWSR = 2
+N0.C2: tWRDRDD = 1
+
+CAS To Receive Enable Data for t_rrdr on channel 3 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  1041  |  1040 
+Strobe  1: |  1030  |  1031 
+Strobe  2: |  1018  |  1017 
+Strobe  3: |  1011  |  1009 
+Strobe  4: |  1000  |  1000 
+Strobe  5: |  1013  |  1015 
+Strobe  6: |  1027  |  1028 
+Strobe  7: |  1034  |  1035 
+Strobe  8: |  998  |  998 
+Strobe  9: |  1045  |  1044 
+Strobe 10: |  1037  |  1037 
+Strobe 11: |  1021  |  1021 
+Strobe 12: |  1015  |  1015 
+Strobe 13: |  1002  |  1004 
+Strobe 14: |  1017  |  1016 
+Strobe 15: |  1030  |  1030 
+Strobe 16: |  1040  |  1039 
+Strobe 17: |  1003  |  1002 
+C3.D0: tRRDRDimm = 1
+N0.C3: tRRDR = 0
+N0.C3: tRRDD = 2
+N0.C3: tWWDR = 3
+
+CAS To Drive Enable Data for t_rrdr on channel 3 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  132  |  132 
+Strobe  1: |  124  |  123 
+Strobe  2: |  118  |  118 
+Strobe  3: |  105  |  105 
+Strobe  4: |   95  |   97 
+Strobe  5: |  103  |  103 
+Strobe  6: |  109  |  109 
+Strobe  7: |  119  |  120 
+Strobe  8: |   98  |   97 
+Strobe  9: |  137  |  137 
+Strobe 10: |  129  |  129 
+Strobe 11: |  120  |  120 
+Strobe 12: |  108  |  108 
+Strobe 13: |  100  |  101 
+Strobe 14: |  108  |  108 
+Strobe 15: |  113  |  112 
+Strobe 16: |  125  |  124 
+Strobe 17: |  102  |  102 
+C3: Cas2DrvEnRnMax = 137, Cas2DrvEnMin = 95
+C3: tWWDD before ODT adjustmen = 2
+N0.C3: tWWDD = 3
+N0.C3: tRWDRDD = 2
+N0.C3: tRWSR = 2
+N0.C3: tWRDRDD = 1
+N0.C0.D0: dimmMtr: 0x000C5011
+N0.C0.D1: dimmMtr: 0x000F0000
+N0.C0.D2: dimmMtr: 0x000F0000
+N0.C1.D0: dimmMtr: 0x000C5011
+N0.C1.D1: dimmMtr: 0x000F0000
+N0.C1.D2: dimmMtr: 0x000F0000
+N0.C2.D0: dimmMtr: 0x000C5011
+N0.C2.D1: dimmMtr: 0x000F0000
+N0.C2.D2: dimmMtr: 0x000F0000
+N0.C3.D0: dimmMtr: 0x000C5011
+N0.C3.D1: dimmMtr: 0x000F0000
+N0.C3.D2: dimmMtr: 0x000F0000
+Checkpoint Code: Socket 0, 0xB7, 0x0B, 0x0000
+Channel Late Configuration
+Checkpoint Code: Socket 0, 0xB8, 0x00, 0x0000
+Initialize Throttling
+
+N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX ACTIVE_VR_MASK with CMD data = 0x00000000
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB ACTIVE_VR_MASK status = 0x00
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB CMD ACTIVE_VR_MASK returned the following data = 0x00000003
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX DRAM_PM_CHN_VR_MAP with CMD data = 0x000000C3
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_CHN_VR_MAP status = 0x00
+ N0.C0: DRAM RAPL DEBUG: BW_LIMINT_TF Override value = 0x10
+ N0.C0: DRAM RAPL DEBUG: MC_BIOS_REQ = 0x0000000A
+ N0.C0: DRAM RAPL DEBUG: BW_LIMINT_TF= 0x0530
+ N0.C0.D0: Initialize DRAM RAPL
+
+N0.C0.D0: DRAM RAPL DEBUG: Current dimmindex (Ch + dimm)  = 0x0000
+ N0.C0.D0: DRAM RAPL DEBUG: DimmMtr data  = 0x000C5011
+ N0.C0.D0: DRAM RAPL DEBUG: RankPresentCal for current dimm/ch = 0x00000003
+ N0.C0.D0: DRAM RAPL DEBUG: CKE slow mode
+ N0.C0.D0: DRAM RAPL DEBUG: open page mode
+ N0.C0.D0: MTS mfgid = 0x104A
+N0.C0.D0: MTS did_rid = 0x300
+N0.C0.D0: MTS Capabilities = 0x6F
+N0.C0.D0: MTS Current Ambient Temperature = 0x42A4
+N0.C0.D0: TCRIT  = 0x620
+N0.C1: DRAM RAPL DEBUG: BW_LIMINT_TF Override value = 0x10
+ N0.C1: DRAM RAPL DEBUG: MC_BIOS_REQ = 0x0000000A
+ N0.C1: DRAM RAPL DEBUG: BW_LIMINT_TF= 0x0530
+ N0.C1.D0: Initialize DRAM RAPL
+
+N0.C1.D0: DRAM RAPL DEBUG: Current dimmindex (Ch + dimm)  = 0x0003
+ N0.C1.D0: DRAM RAPL DEBUG: DimmMtr data  = 0x000C5011
+ N0.C1.D0: DRAM RAPL DEBUG: RankPresentCal for current dimm/ch = 0x00000003
+ N0.C1.D0: DRAM RAPL DEBUG: CKE slow mode
+ N0.C1.D0: DRAM RAPL DEBUG: open page mode
+ N0.C1.D0: MTS mfgid = 0x104A
+N0.C1.D0: MTS did_rid = 0x300
+N0.C1.D0: MTS Capabilities = 0x6F
+N0.C1.D0: MTS Current Ambient Temperature = 0x4278
+N0.C1.D0: TCRIT  = 0x620
+N0: SMBCNTL_0 = 0x38000111
+N0.C2: DRAM RAPL DEBUG: BW_LIMINT_TF Override value = 0x10
+ N0.C2: DRAM RAPL DEBUG: MC_BIOS_REQ = 0x0000000A
+ N0.C2: DRAM RAPL DEBUG: BW_LIMINT_TF= 0x0530
+ N0.C2.D0: Initialize DRAM RAPL
+
+N0.C2.D0: DRAM RAPL DEBUG: Current dimmindex (Ch + dimm)  = 0x0006
+ N0.C2.D0: DRAM RAPL DEBUG: DimmMtr data  = 0x000C5011
+ N0.C2.D0: DRAM RAPL DEBUG: RankPresentCal for current dimm/ch = 0x00000003
+ N0.C2.D0: DRAM RAPL DEBUG: CKE slow mode
+ N0.C2.D0: DRAM RAPL DEBUG: open page mode
+ N0.C2.D0: MTS mfgid = 0x104A
+N0.C2.D0: MTS did_rid = 0x300
+N0.C2.D0: MTS Capabilities = 0x6F
+N0.C2.D0: MTS Current Ambient Temperature = 0x424C
+N0.C2.D0: TCRIT  = 0x620
+N0.C3: DRAM RAPL DEBUG: BW_LIMINT_TF Override value = 0x10
+ N0.C3: DRAM RAPL DEBUG: MC_BIOS_REQ = 0x0000000A
+ N0.C3: DRAM RAPL DEBUG: BW_LIMINT_TF= 0x0530
+ N0.C3.D0: Initialize DRAM RAPL
+
+N0.C3.D0: DRAM RAPL DEBUG: Current dimmindex (Ch + dimm)  = 0x0009
+ N0.C3.D0: DRAM RAPL DEBUG: DimmMtr data  = 0x000C5011
+ N0.C3.D0: DRAM RAPL DEBUG: RankPresentCal for current dimm/ch = 0x00000003
+ N0.C3.D0: DRAM RAPL DEBUG: CKE slow mode
+ N0.C3.D0: DRAM RAPL DEBUG: open page mode
+ N0.C3.D0: MTS mfgid = 0x104A
+N0.C3.D0: MTS did_rid = 0x300
+N0.C3.D0: MTS Capabilities = 0x6F
+N0.C3.D0: MTS Current Ambient Temperature = 0x423C
+N0.C3.D0: TCRIT  = 0x620
+N0: SMBCNTL_1 = 0x38000111
+N0.C0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DDR_RANKS_PRESENT with CMD data = 0x00000003
+ N0.C0: DRAM RAPL DEBUG: DRAM RAPL MXB DDR_RANKS_PRESENT CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Constant) with CMD data = 0x00580001
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Idel Power) with CMD data = 0x00220000
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (S value) with CMD data = 0x01100000
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (M value) with CMD data = 0x00018000
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_DRAM_PBM_THRT_ADJUST with CMD data = 0x00008000
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_DRAM_PBM_THRT_ADJUST CMD status = 0x00
+ N0.C1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DDR_RANKS_PRESENT with CMD data = 0x01000003
+ N0.C1: DRAM RAPL DEBUG: DRAM RAPL MXB DDR_RANKS_PRESENT CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Constant) with CMD data = 0x00580007
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Idel Power) with CMD data = 0x00220006
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (S value) with CMD data = 0x01100003
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (M value) with CMD data = 0x00018003
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_DRAM_PBM_THRT_ADJUST with CMD data = 0x00008003
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_DRAM_PBM_THRT_ADJUST CMD status = 0x00
+ N0.C2: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DDR_RANKS_PRESENT with CMD data = 0x02000003
+ N0.C2: DRAM RAPL DEBUG: DRAM RAPL MXB DDR_RANKS_PRESENT CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Constant) with CMD data = 0x0058000D
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Idel Power) with CMD data = 0x0022000C
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (S value) with CMD data = 0x01100006
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (M value) with CMD data = 0x00018006
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_DRAM_PBM_THRT_ADJUST with CMD data = 0x00008006
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_DRAM_PBM_THRT_ADJUST CMD status = 0x00
+ N0.C3: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DDR_RANKS_PRESENT with CMD data = 0x03000003
+ N0.C3: DRAM RAPL DEBUG: DRAM RAPL MXB DDR_RANKS_PRESENT CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Constant) with CMD data = 0x00580013
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Idel Power) with CMD data = 0x00220012
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (S value) with CMD data = 0x01100009
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (M value) with CMD data = 0x00018009
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_DRAM_PBM_THRT_ADJUST with CMD data = 0x00008009
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_DRAM_PBM_THRT_ADJUST CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_RAPL_MODE with CMD data = 0x00000001
+ N0: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_RAPL_MODE CMD status = 0x00
+ N0: DRAM RAPL DEBUG: Programming DRAM Power Info (CSR) lower word with  = 0x00AC0124
+ N0: DRAM RAPL DEBUG: Programming DRAM Power Info (CSR) upper word with  = 0x002F0140
+ N0: 
+Initialize DRAM Phase Shedding
+N0: Setting Socket 0x0 - VR0 Active PSI = PS1
+N0: Setting Socket 0x0 - VR1 Active PSI = PS1
+Checkpoint Code: Socket 0, 0xB7, 0x0C, 0x0000
+Clear Errors
+Checkpoint Code: Socket 0, 0xB2, 0x00, 0x0000
+Gather SPD Data
+
+GatherSPDData time            183 ms
+Checkpoint Code: Socket 0, 0xB3, 0x00, 0x0000
+Global Early Configuration
+Checkpoint Code: Socket 0, 0xB5, 0x00, 0x0000
+Channel Early Configuration
+Memory Timings:
+N1.C0: nCL  = 9
+N1.C0: nCWL = 7
+N1.C0: nRP  = 9
+N1.C0: nRCD = 9
+N1.C0: nRRD = 4
+N1.C0: nWTR = 5
+N1.C0: nRAS = 24
+N1.C0: nRTP = 5
+N1.C0: nWR  = 10
+N1.C0: nFAW = 20
+N1.C0: nRC  = 33
+N1.C0: nRFC = 174
+N1.C0: casSup = 0xFE
+N1.C0: t_stagger_ref = 0x86
+N1.C0.D0.R0: DRAM Rtt_wr = 0, Rtt_nom = 60
+N1.C0.D0.R1: DRAM Rtt_wr = 0, Rtt_nom = 60
+Memory Timings:
+N1.C1: nCL  = 9
+N1.C1: nCWL = 7
+N1.C1: nRP  = 9
+N1.C1: nRCD = 9
+N1.C1: nRRD = 4
+N1.C1: nWTR = 5
+N1.C1: nRAS = 24
+N1.C1: nRTP = 5
+N1.C1: nWR  = 10
+N1.C1: nFAW = 20
+N1.C1: nRC  = 33
+N1.C1: nRFC = 174
+N1.C1: casSup = 0xFE
+N1.C1: t_stagger_ref = 0x86
+N1.C1.D0.R0: DRAM Rtt_wr = 0, Rtt_nom = 60
+N1.C1.D0.R1: DRAM Rtt_wr = 0, Rtt_nom = 60
+Memory Timings:
+N1.C2: nCL  = 9
+N1.C2: nCWL = 7
+N1.C2: nRP  = 9
+N1.C2: nRCD = 9
+N1.C2: nRRD = 4
+N1.C2: nWTR = 5
+N1.C2: nRAS = 24
+N1.C2: nRTP = 5
+N1.C2: nWR  = 10
+N1.C2: nFAW = 20
+N1.C2: nRC  = 33
+N1.C2: nRFC = 174
+N1.C2: casSup = 0xFE
+N1.C2: t_stagger_ref = 0x86
+N1.C2.D0.R0: DRAM Rtt_wr = 0, Rtt_nom = 60
+N1.C2.D0.R1: DRAM Rtt_wr = 0, Rtt_nom = 60
+Memory Timings:
+N1.C3: nCL  = 9
+N1.C3: nCWL = 7
+N1.C3: nRP  = 9
+N1.C3: nRCD = 9
+N1.C3: nRRD = 4
+N1.C3: nWTR = 5
+N1.C3: nRAS = 24
+N1.C3: nRTP = 5
+N1.C3: nWR  = 10
+N1.C3: nFAW = 20
+N1.C3: nRC  = 33
+N1.C3: nRFC = 174
+N1.C3: casSup = 0xFE
+N1.C3: t_stagger_ref = 0x86
+N1.C3.D0.R0: DRAM Rtt_wr = 0, Rtt_nom = 60
+N1.C3.D0.R1: DRAM Rtt_wr = 0, Rtt_nom = 60
+Checkpoint Code: Socket 0, 0xB6, 0x00, 0x0000
+JEDEC Initialization Sequence
+Checkpoint Code: Socket 0, 0xB7, 0x00, 0x0000
+Initialize DDR Channels
+
+CAS To Receive Enable Data for t_rrdr on channel 0 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  1070  |  1070 
+Strobe  1: |  1055  |  1055 
+Strobe  2: |  1047  |  1047 
+Strobe  3: |  1035  |  1034 
+Strobe  4: |  1025  |  1024 
+Strobe  5: |  1030  |  1033 
+Strobe  6: |  1045  |  1044 
+Strobe  7: |  1053  |  1054 
+Strobe  8: |  1021  |  1021 
+Strobe  9: |  1074  |  1074 
+Strobe 10: |  1058  |  1059 
+Strobe 11: |  1049  |  1048 
+Strobe 12: |  1038  |  1038 
+Strobe 13: |  1029  |  1028 
+Strobe 14: |  1034  |  1032 
+Strobe 15: |  1049  |  1047 
+Strobe 16: |  1054  |  1055 
+Strobe 17: |  1022  |  1024 
+C0.D0: tRRDRDimm = 1
+N1.C0: tRRDR = 0
+N1.C0: tRRDD = 2
+N1.C0: tWWDR = 3
+
+CAS To Drive Enable Data for t_rrdr on channel 0 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  128  |  127 
+Strobe  1: |  124  |  124 
+Strobe  2: |  113  |  113 
+Strobe  3: |  108  |  107 
+Strobe  4: |   97  |   96 
+Strobe  5: |  114  |  112 
+Strobe  6: |  117  |  116 
+Strobe  7: |  128  |  128 
+Strobe  8: |  102  |  103 
+Strobe  9: |  131  |  131 
+Strobe 10: |  128  |  130 
+Strobe 11: |  118  |  117 
+Strobe 12: |  112  |  111 
+Strobe 13: |  100  |  101 
+Strobe 14: |  118  |  117 
+Strobe 15: |  120  |  119 
+Strobe 16: |  131  |  131 
+Strobe 17: |  105  |  104 
+C0: Cas2DrvEnRnMax = 131, Cas2DrvEnMin = 96
+C0: tWWDD before ODT adjustmen = 2
+N1.C0: tWWDD = 3
+N1.C0: tRWDRDD = 2
+N1.C0: tRWSR = 2
+N1.C0: tWRDRDD = 1
+
+CAS To Receive Enable Data for t_rrdr on channel 1 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  1046  |  1046 
+Strobe  1: |  1035  |  1033 
+Strobe  2: |  1022  |  1021 
+Strobe  3: |  1015  |  1014 
+Strobe  4: |  996  |  997 
+Strobe  5: |  1009  |  1009 
+Strobe  6: |  1019  |  1018 
+Strobe  7: |  1032  |  1031 
+Strobe  8: |  997  |  997 
+Strobe  9: |  1050  |  1050 
+Strobe 10: |  1037  |  1038 
+Strobe 11: |  1025  |  1025 
+Strobe 12: |  1017  |  1016 
+Strobe 13: |  1001  |  1001 
+Strobe 14: |  1013  |  1011 
+Strobe 15: |  1024  |  1023 
+Strobe 16: |  1037  |  1035 
+Strobe 17: |  1000  |  999 
+C1.D0: tRRDRDimm = 1
+N1.C1: tRRDR = 0
+N1.C1: tRRDD = 2
+N1.C1: tWWDR = 3
+
+CAS To Drive Enable Data for t_rrdr on channel 1 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  125  |  126 
+Strobe  1: |  117  |  117 
+Strobe  2: |  110  |  110 
+Strobe  3: |  103  |  101 
+Strobe  4: |   97  |   98 
+Strobe  5: |  107  |  107 
+Strobe  6: |  114  |  114 
+Strobe  7: |  121  |  122 
+Strobe  8: |   97  |   96 
+Strobe  9: |  128  |  129 
+Strobe 10: |  122  |  122 
+Strobe 11: |  115  |  113 
+Strobe 12: |  106  |  106 
+Strobe 13: |  100  |  101 
+Strobe 14: |  112  |  111 
+Strobe 15: |  118  |  118 
+Strobe 16: |  127  |  126 
+Strobe 17: |  102  |  101 
+C1: Cas2DrvEnRnMax = 129, Cas2DrvEnMin = 96
+C1: tWWDD before ODT adjustmen = 2
+N1.C1: tWWDD = 3
+N1.C1: tRWDRDD = 2
+N1.C1: tRWSR = 2
+N1.C1: tWRDRDD = 1
+
+CAS To Receive Enable Data for t_rrdr on channel 2 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  1066  |  1065 
+Strobe  1: |  1054  |  1054 
+Strobe  2: |  1041  |  1041 
+Strobe  3: |  1036  |  1036 
+Strobe  4: |  1024  |  1024 
+Strobe  5: |  1037  |  1037 
+Strobe  6: |  1050  |  1048 
+Strobe  7: |  1061  |  1061 
+Strobe  8: |  1025  |  1025 
+Strobe  9: |  1069  |  1069 
+Strobe 10: |  1057  |  1057 
+Strobe 11: |  1042  |  1043 
+Strobe 12: |  1039  |  1038 
+Strobe 13: |  1028  |  1026 
+Strobe 14: |  1041  |  1039 
+Strobe 15: |  1053  |  1053 
+Strobe 16: |  1063  |  1062 
+Strobe 17: |  1027  |  1027 
+C2.D0: tRRDRDimm = 1
+N1.C2: tRRDR = 0
+N1.C2: tRRDD = 2
+N1.C2: tWWDR = 3
+
+CAS To Drive Enable Data for t_rrdr on channel 2 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  136  |  135 
+Strobe  1: |  128  |  127 
+Strobe  2: |  123  |  123 
+Strobe  3: |  109  |  109 
+Strobe  4: |   99  |   99 
+Strobe  5: |  106  |  106 
+Strobe  6: |  112  |  110 
+Strobe  7: |  121  |  122 
+Strobe  8: |   98  |   99 
+Strobe  9: |  140  |  138 
+Strobe 10: |  132  |  132 
+Strobe 11: |  125  |  125 
+Strobe 12: |  112  |  112 
+Strobe 13: |  102  |  102 
+Strobe 14: |  109  |  108 
+Strobe 15: |  117  |  116 
+Strobe 16: |  124  |  124 
+Strobe 17: |  101  |  101 
+C2: Cas2DrvEnRnMax = 140, Cas2DrvEnMin = 98
+C2: tWWDD before ODT adjustmen = 2
+N1.C2: tWWDD = 3
+N1.C2: tRWDRDD = 2
+N1.C2: tRWSR = 2
+N1.C2: tWRDRDD = 1
+
+CAS To Receive Enable Data for t_rrdr on channel 3 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  1042  |  1042 
+Strobe  1: |  1030  |  1031 
+Strobe  2: |  1018  |  1019 
+Strobe  3: |  1014  |  1013 
+Strobe  4: |  999  |  998 
+Strobe  5: |  1015  |  1015 
+Strobe  6: |  1027  |  1028 
+Strobe  7: |  1036  |  1036 
+Strobe  8: |  1000  |  999 
+Strobe  9: |  1047  |  1046 
+Strobe 10: |  1035  |  1036 
+Strobe 11: |  1023  |  1023 
+Strobe 12: |  1015  |  1015 
+Strobe 13: |  1001  |  1001 
+Strobe 14: |  1016  |  1017 
+Strobe 15: |  1030  |  1029 
+Strobe 16: |  1038  |  1039 
+Strobe 17: |  1003  |  1002 
+C3.D0: tRRDRDimm = 1
+N1.C3: tRRDR = 0
+N1.C3: tRRDD = 2
+N1.C3: tWWDR = 3
+
+CAS To Drive Enable Data for t_rrdr on channel 3 DIMM 0
+           | rank 0 | rank 1 | rank 2 | rank 3
+-----------------------------------------------
+Strobe  0: |  131  |  131 
+Strobe  1: |  122  |  123 
+Strobe  2: |  117  |  116 
+Strobe  3: |  105  |  105 
+Strobe  4: |   94  |   95 
+Strobe  5: |  103  |  103 
+Strobe  6: |  108  |  108 
+Strobe  7: |  119  |  119 
+Strobe  8: |   96  |   95 
+Strobe  9: |  135  |  135 
+Strobe 10: |  127  |  127 
+Strobe 11: |  120  |  119 
+Strobe 12: |  109  |  108 
+Strobe 13: |   99  |  100 
+Strobe 14: |  106  |  106 
+Strobe 15: |  111  |  111 
+Strobe 16: |  123  |  123 
+Strobe 17: |  100  |  101 
+C3: Cas2DrvEnRnMax = 135, Cas2DrvEnMin = 94
+C3: tWWDD before ODT adjustmen = 2
+N1.C3: tWWDD = 3
+N1.C3: tRWDRDD = 2
+N1.C3: tRWSR = 2
+N1.C3: tWRDRDD = 1
+N1.C0.D0: dimmMtr: 0x000C5011
+N1.C0.D1: dimmMtr: 0x000F0000
+N1.C0.D2: dimmMtr: 0x000F0000
+N1.C1.D0: dimmMtr: 0x000C5011
+N1.C1.D1: dimmMtr: 0x000F0000
+N1.C1.D2: dimmMtr: 0x000F0000
+N1.C2.D0: dimmMtr: 0x000C5011
+N1.C2.D1: dimmMtr: 0x000F0000
+N1.C2.D2: dimmMtr: 0x000F0000
+N1.C3.D0: dimmMtr: 0x000C5011
+N1.C3.D1: dimmMtr: 0x000F0000
+N1.C3.D2: dimmMtr: 0x000F0000
+Checkpoint Code: Socket 0, 0xB7, 0x0B, 0x0000
+Channel Late Configuration
+Checkpoint Code: Socket 0, 0xB8, 0x00, 0x0000
+Initialize Throttling
+
+N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX ACTIVE_VR_MASK with CMD data = 0x00000000
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB ACTIVE_VR_MASK status = 0x00
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB CMD ACTIVE_VR_MASK returned the following data = 0x00000003
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX DRAM_PM_CHN_VR_MAP with CMD data = 0x000000C3
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_CHN_VR_MAP status = 0x00
+ N1.C0: DRAM RAPL DEBUG: BW_LIMINT_TF Override value = 0x10
+ N1.C0: DRAM RAPL DEBUG: MC_BIOS_REQ = 0x0000000A
+ N1.C0: DRAM RAPL DEBUG: BW_LIMINT_TF= 0x0530
+ N1.C0.D0: Initialize DRAM RAPL
+
+N1.C0.D0: DRAM RAPL DEBUG: Current dimmindex (Ch + dimm)  = 0x0000
+ N1.C0.D0: DRAM RAPL DEBUG: DimmMtr data  = 0x000C5011
+ N1.C0.D0: DRAM RAPL DEBUG: RankPresentCal for current dimm/ch = 0x00000003
+ N1.C0.D0: DRAM RAPL DEBUG: CKE slow mode
+ N1.C0.D0: DRAM RAPL DEBUG: open page mode
+ N1.C0.D0: MTS mfgid = 0x104A
+N1.C0.D0: MTS did_rid = 0x300
+N1.C0.D0: MTS Capabilities = 0x6F
+N1.C0.D0: MTS Current Ambient Temperature = 0x42B0
+N1.C0.D0: TCRIT  = 0x620
+N1.C1: DRAM RAPL DEBUG: BW_LIMINT_TF Override value = 0x10
+ N1.C1: DRAM RAPL DEBUG: MC_BIOS_REQ = 0x0000000A
+ N1.C1: DRAM RAPL DEBUG: BW_LIMINT_TF= 0x0530
+ N1.C1.D0: Initialize DRAM RAPL
+
+N1.C1.D0: DRAM RAPL DEBUG: Current dimmindex (Ch + dimm)  = 0x0003
+ N1.C1.D0: DRAM RAPL DEBUG: DimmMtr data  = 0x000C5011
+ N1.C1.D0: DRAM RAPL DEBUG: RankPresentCal for current dimm/ch = 0x00000003
+ N1.C1.D0: DRAM RAPL DEBUG: CKE slow mode
+ N1.C1.D0: DRAM RAPL DEBUG: open page mode
+ N1.C1.D0: MTS mfgid = 0x104A
+N1.C1.D0: MTS did_rid = 0x300
+N1.C1.D0: MTS Capabilities = 0x6F
+N1.C1.D0: MTS Current Ambient Temperature = 0x42A8
+N1.C1.D0: TCRIT  = 0x620
+N1: SMBCNTL_0 = 0x38000111
+N1.C2: DRAM RAPL DEBUG: BW_LIMINT_TF Override value = 0x10
+ N1.C2: DRAM RAPL DEBUG: MC_BIOS_REQ = 0x0000000A
+ N1.C2: DRAM RAPL DEBUG: BW_LIMINT_TF= 0x0530
+ N1.C2.D0: Initialize DRAM RAPL
+
+N1.C2.D0: DRAM RAPL DEBUG: Current dimmindex (Ch + dimm)  = 0x0006
+ N1.C2.D0: DRAM RAPL DEBUG: DimmMtr data  = 0x000C5011
+ N1.C2.D0: DRAM RAPL DEBUG: RankPresentCal for current dimm/ch = 0x00000003
+ N1.C2.D0: DRAM RAPL DEBUG: CKE slow mode
+ N1.C2.D0: DRAM RAPL DEBUG: open page mode
+ N1.C2.D0: MTS mfgid = 0x104A
+N1.C2.D0: MTS did_rid = 0x300
+N1.C2.D0: MTS Capabilities = 0x6F
+N1.C2.D0: MTS Current Ambient Temperature = 0x42A4
+N1.C2.D0: TCRIT  = 0x620
+N1.C3: DRAM RAPL DEBUG: BW_LIMINT_TF Override value = 0x10
+ N1.C3: DRAM RAPL DEBUG: MC_BIOS_REQ = 0x0000000A
+ N1.C3: DRAM RAPL DEBUG: BW_LIMINT_TF= 0x0530
+ N1.C3.D0: Initialize DRAM RAPL
+
+N1.C3.D0: DRAM RAPL DEBUG: Current dimmindex (Ch + dimm)  = 0x0009
+ N1.C3.D0: DRAM RAPL DEBUG: DimmMtr data  = 0x000C5011
+ N1.C3.D0: DRAM RAPL DEBUG: RankPresentCal for current dimm/ch = 0x00000003
+ N1.C3.D0: DRAM RAPL DEBUG: CKE slow mode
+ N1.C3.D0: DRAM RAPL DEBUG: open page mode
+ N1.C3.D0: MTS mfgid = 0x104A
+N1.C3.D0: MTS did_rid = 0x300
+N1.C3.D0: MTS Capabilities = 0x6F
+N1.C3.D0: MTS Current Ambient Temperature = 0x42C4
+N1.C3.D0: TCRIT  = 0x620
+N1: SMBCNTL_1 = 0x38000111
+N1.C0: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DDR_RANKS_PRESENT with CMD data = 0x00000003
+ N1.C0: DRAM RAPL DEBUG: DRAM RAPL MXB DDR_RANKS_PRESENT CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Constant) with CMD data = 0x00580001
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Idel Power) with CMD data = 0x00220000
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (S value) with CMD data = 0x01100000
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (M value) with CMD data = 0x00018000
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_DRAM_PBM_THRT_ADJUST with CMD data = 0x00008000
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_DRAM_PBM_THRT_ADJUST CMD status = 0x00
+ N1.C1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DDR_RANKS_PRESENT with CMD data = 0x01000003
+ N1.C1: DRAM RAPL DEBUG: DRAM RAPL MXB DDR_RANKS_PRESENT CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Constant) with CMD data = 0x00580007
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Idel Power) with CMD data = 0x00220006
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (S value) with CMD data = 0x01100003
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (M value) with CMD data = 0x00018003
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_DRAM_PBM_THRT_ADJUST with CMD data = 0x00008003
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_DRAM_PBM_THRT_ADJUST CMD status = 0x00
+ N1.C2: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DDR_RANKS_PRESENT with CMD data = 0x02000003
+ N1.C2: DRAM RAPL DEBUG: DRAM RAPL MXB DDR_RANKS_PRESENT CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Constant) with CMD data = 0x0058000D
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Idel Power) with CMD data = 0x0022000C
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (S value) with CMD data = 0x01100006
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (M value) with CMD data = 0x00018006
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_DRAM_PBM_THRT_ADJUST with CMD data = 0x00008006
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_DRAM_PBM_THRT_ADJUST CMD status = 0x00
+ N1.C3: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DDR_RANKS_PRESENT with CMD data = 0x03000003
+ N1.C3: DRAM RAPL DEBUG: DRAM RAPL MXB DDR_RANKS_PRESENT CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Constant) with CMD data = 0x00580013
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_PM_WRITE_POWER_COEFF (Idel Power) with CMD data = 0x00220012
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_PM_WRITE_POWER_COEFF CMD status =  0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (S value) with CMD data = 0x01100009
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_PWR_BW_SCALE (M value) with CMD data = 0x00018009
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_PWR_BW_SCALE CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD WRITE_DRAM_PBM_THRT_ADJUST with CMD data = 0x00008009
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB WRITE_DRAM_PBM_THRT_ADJUST CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Issued DRAM RAPL MBX CMD DRAM_RAPL_MODE with CMD data = 0x00000001
+ N1: DRAM RAPL DEBUG: DRAM RAPL MXB DRAM_RAPL_MODE CMD status = 0x00
+ N1: DRAM RAPL DEBUG: Programming DRAM Power Info (CSR) lower word with  = 0x00AC0124
+ N1: DRAM RAPL DEBUG: Programming DRAM Power Info (CSR) upper word with  = 0x002F0140
+ N1: 
+Initialize DRAM Phase Shedding
+N1: Setting Socket 0x1 - VR0 Active PSI = PS1
+N1: Setting Socket 0x1 - VR1 Active PSI = PS1
+Checkpoint Code: Socket 0, 0xB7, 0x0C, 0x0000
+Clear Errors
+Checkpoint Code: Socket 0, 0xB4, 0x00, 0x0000
+RAS EX modes on warm fast boot = 4 
+N0.C0.D0.R0: size 128
+TechIndex 0x9, size 0x80
+N0.C0.D0.R1: size 128
+TechIndex 0x9, size 0x80
+N0.C1.D0.R0: size 128
+TechIndex 0x9, size 0x80
+N0.C1.D0.R1: size 128
+TechIndex 0x9, size 0x80
+N0.C2.D0.R0: size 128
+TechIndex 0x9, size 0x80
+N0.C2.D0.R1: size 128
+TechIndex 0x9, size 0x80
+N0.C3.D0.R0: size 128
+TechIndex 0x9, size 0x80
+N0.C3.D0.R1: size 128
+TechIndex 0x9, size 0x80
+N1.C0.D0.R0: size 128
+TechIndex 0x9, size 0x80
+N1.C0.D0.R1: size 128
+TechIndex 0x9, size 0x80
+N1.C1.D0.R0: size 128
+TechIndex 0x9, size 0x80
+N1.C1.D0.R1: size 128
+TechIndex 0x9, size 0x80
+N1.C2.D0.R0: size 128
+TechIndex 0x9, size 0x80
+N1.C2.D0.R1: size 128
+TechIndex 0x9, size 0x80
+N1.C3.D0.R0: size 128
+TechIndex 0x9, size 0x80
+N1.C3.D0.R1: size 128
+TechIndex 0x9, size 0x80
+Checkpoint Code: Socket 0, 0xBB, 0x00, 0x0000
+N0.C0.D0.R0: dimm memSize = 128 
+N0.C0.D0.R1: dimm memSize = 256 
+N0.C1.D0.R0: dimm memSize = 128 
+N0.C1.D0.R1: dimm memSize = 256 
+N0.C2.D0.R0: dimm memSize = 128 
+N0.C2.D0.R1: dimm memSize = 256 
+N0.C3.D0.R0: dimm memSize = 128 
+N0.C3.D0.R1: dimm memSize = 256 
+N1.C0.D0.R0: dimm memSize = 128 
+N1.C0.D0.R1: dimm memSize = 256 
+N1.C1.D0.R0: dimm memSize = 128 
+N1.C1.D0.R1: dimm memSize = 256 
+N1.C2.D0.R0: dimm memSize = 128 
+N1.C2.D0.R1: dimm memSize = 256 
+N1.C3.D0.R0: dimm memSize = 128 
+N1.C3.D0.R1: dimm memSize = 256 
+
+		----------- Memory Map Info ----------------
+ Node XOR Config = XOR mode
+Parity Interleave Disabled
+ Node RAS Config = Channel Independent
+ NUMA Config
+ Node Interleave Ways: 1
+ System Mem Size (64MB granularity): 2048
+
+ SAD Table
+ Rule Enable 	Limit 	Mode 	Ways 	Interleave List(right to left)
+-------------------------------------------------------------------
+ 0	1	1072	1	1	00000000
+ 1	1	2096	1	1	11111111
+
+----------- Node Info ----------------
+----------- Node 0 
+ Node Enabled
+ Node max DIMM pop count = 1
+ Node mem size (64MB) = 1024
+
+--------------------- TAD Info ------------------------------
+
+ TAD Table (Socket 0)
+ Rule 	Enable 	Limit 	Mode 	Ch Ways
+---------------------------------------
+ Home Agent 0)
+
+ 0	1	16	0	4
+	TAD Interleave List
+	Way 	Target 	Offset 	ChIndex
+	0	0	0	0
+	1	1	0	0
+	2	2	0	0
+	3	3	0	0
+
+ 1	1	1072	0	4
+	TAD Interleave List
+	Way 	Target 	Offset 	ChIndex
+	0	0	48	0
+	1	1	48	0
+	2	2	48	0
+	3	3	48	0
+
+
+----------- Channel Info ----------------
+----------- Channel 0 
+ Channel Enabled
+ Channel mem size (64MB) = 256
+
+ --------------------- RIR Info ------------------------------
+
+ RIR Table (Socket 0, Channel 0)
+----------------------------------------------
+
+ Rule 	Enable 	Limit(Ch Space) 	Ways
+ 0	1	256			2
+
+	Rank Interleave List
+	Way 	Target 	Offset
+	0	0	0
+	1	1	0
+	2	0	0
+	3	0	0
+	4	0	0
+	5	0	0
+	6	0	0
+	7	0	0
+
+----------- Channel 1 
+ Channel Enabled
+ Channel mem size (64MB) = 256
+
+ --------------------- RIR Info ------------------------------
+
+ RIR Table (Socket 0, Channel 1)
+----------------------------------------------
+
+ Rule 	Enable 	Limit(Ch Space) 	Ways
+ 0	1	256			2
+
+	Rank Interleave List
+	Way 	Target 	Offset
+	0	0	0
+	1	1	0
+	2	0	0
+	3	0	0
+	4	0	0
+	5	0	0
+	6	0	0
+	7	0	0
+
+----------- Channel 2 
+ Channel Enabled
+ Channel mem size (64MB) = 256
+
+ --------------------- RIR Info ------------------------------
+
+ RIR Table (Socket 0, Channel 2)
+----------------------------------------------
+
+ Rule 	Enable 	Limit(Ch Space) 	Ways
+ 0	1	256			2
+
+	Rank Interleave List
+	Way 	Target 	Offset
+	0	0	0
+	1	1	0
+	2	0	0
+	3	0	0
+	4	0	0
+	5	0	0
+	6	0	0
+	7	0	0
+
+----------- Channel 3 
+ Channel Enabled
+ Channel mem size (64MB) = 256
+
+ --------------------- RIR Info ------------------------------
+
+ RIR Table (Socket 0, Channel 3)
+----------------------------------------------
+
+ Rule 	Enable 	Limit(Ch Space) 	Ways
+ 0	1	256			2
+
+	Rank Interleave List
+	Way 	Target 	Offset
+	0	0	0
+	1	1	0
+	2	0	0
+	3	0	0
+	4	0	0
+	5	0	0
+	6	0	0
+	7	0	0
+
+----------- Node 1 
+ Node Enabled
+ Node max DIMM pop count = 1
+ Node mem size (64MB) = 1024
+
+--------------------- TAD Info ------------------------------
+
+ TAD Table (Socket 1)
+ Rule 	Enable 	Limit 	Mode 	Ch Ways
+---------------------------------------
+ Home Agent 0)
+
+ 0	1	2096	0	4
+	TAD Interleave List
+	Way 	Target 	Offset 	ChIndex
+	0	0	1072	0
+	1	1	1072	0
+	2	2	1072	0
+	3	3	1072	0
+
+
+----------- Channel Info ----------------
+----------- Channel 0 
+ Channel Enabled
+ Channel mem size (64MB) = 256
+
+ --------------------- RIR Info ------------------------------
+
+ RIR Table (Socket 1, Channel 0)
+----------------------------------------------
+
+ Rule 	Enable 	Limit(Ch Space) 	Ways
+ 0	1	256			2
+
+	Rank Interleave List
+	Way 	Target 	Offset
+	0	0	0
+	1	1	0
+	2	0	0
+	3	0	0
+	4	0	0
+	5	0	0
+	6	0	0
+	7	0	0
+
+----------- Channel 1 
+ Channel Enabled
+ Channel mem size (64MB) = 256
+
+ --------------------- RIR Info ------------------------------
+
+ RIR Table (Socket 1, Channel 1)
+----------------------------------------------
+
+ Rule 	Enable 	Limit(Ch Space) 	Ways
+ 0	1	256			2
+
+	Rank Interleave List
+	Way 	Target 	Offset
+	0	0	0
+	1	1	0
+	2	0	0
+	3	0	0
+	4	0	0
+	5	0	0
+	6	0	0
+	7	0	0
+
+----------- Channel 2 
+ Channel Enabled
+ Channel mem size (64MB) = 256
+
+ --------------------- RIR Info ------------------------------
+
+ RIR Table (Socket 1, Channel 2)
+----------------------------------------------
+
+ Rule 	Enable 	Limit(Ch Space) 	Ways
+ 0	1	256			2
+
+	Rank Interleave List
+	Way 	Target 	Offset
+	0	0	0
+	1	1	0
+	2	0	0
+	3	0	0
+	4	0	0
+	5	0	0
+	6	0	0
+	7	0	0
+
+----------- Channel 3 
+ Channel Enabled
+ Channel mem size (64MB) = 256
+
+ --------------------- RIR Info ------------------------------
+
+ RIR Table (Socket 1, Channel 3)
+----------------------------------------------
+
+ Rule 	Enable 	Limit(Ch Space) 	Ways
+ 0	1	256			2
+
+	Rank Interleave List
+	Way 	Target 	Offset
+	0	0	0
+	1	1	0
+	2	0	0
+	3	0	0
+	4	0	0
+	5	0	0
+	6	0	0
+	7	0	0
+
+----------- Node 2 
+ Node not enabled
+
+----------- Node 3 
+ Node not enabled
+
+highMemBase: 0x40
+highMemSize: 0x7F0
+TOLM (64MB): 0xF
+TOHM (64MB): 0x830
+Checkpoint Code: Socket 0, 0xBC, 0x00, 0x0000
+Set RAS Config
+N0: Independent channel mode enabled
+N0: Patrol scrub enabled and started
+N0: Demand scrub disabled
+N0: HA CrdtCnt configured, mc Write credits = 31
+N0: Leaky bucket configured
+N1: Independent channel mode enabled
+N1: Patrol scrub enabled and started
+N1: Demand scrub disabled
+N1: HA CrdtCnt configured, mc Write credits = 31
+N1: Leaky bucket configured
+ECC is enabled
+
+Total MRC latency = 10553 ms
+
+START_DIMMINFO_TABLE
+
+==============================================================================
+START_SOCKET_0_TABLE
+JKT Unknown Stepping - Socket R
+==============================================================================
+S|    Channel 0     |    Channel 1     |    Channel 2     |    Channel 3     |
+==============================================================================
+0|       Micron     |       Micron     |       Micron     |       Micron     |
+ |       Micron     |       Micron     |       Micron     |       Micron     |
+ |        IDT       |        IDT       |        IDT       |        IDT       |
+ |   16GB(4Gbx4)    |   16GB(4Gbx4)    |   16GB(4Gbx4)    |   16GB(4Gbx4)    |
+ |   RDIMM R/C-E    |   RDIMM R/C-E    |   RDIMM R/C-E    |   RDIMM R/C-E    |
+ |    1600 9-9-9    |    1600 9-9-9    |    1600 9-9-9    |    1600 9-9-9    |
+ |     ww272014     |     ww272014     |     ww272014     |     ww272014     |
+ |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+1|  Not installed   |  Not installed   |  Not installed   |  Not installed   |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+2|  Not installed   |  Not installed   |  Not installed   |  Not installed   |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+STOP_SOCKET_0_TABLE
+======================================================================================
+
+==============================================================================
+START_SOCKET_1_TABLE
+JKT Unknown Stepping - Socket R
+==============================================================================
+S|    Channel 0     |    Channel 1     |    Channel 2     |    Channel 3     |
+==============================================================================
+0|       Micron     |       Micron     |       Micron     |       Micron     |
+ |       Micron     |       Micron     |       Micron     |       Micron     |
+ |        IDT       |        IDT       |        IDT       |        IDT       |
+ |   16GB(4Gbx4)    |   16GB(4Gbx4)    |   16GB(4Gbx4)    |   16GB(4Gbx4)    |
+ |   RDIMM R/C-E    |   RDIMM R/C-E    |   RDIMM R/C-E    |   RDIMM R/C-E    |
+ |    1600 9-9-9    |    1600 9-9-9    |    1600 9-9-9    |    1600 9-9-9    |
+ |     ww272014     |     ww272014     |     ww272014     |     ww272014     |
+ |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |36KSF2G72PZ-1G6E1  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+1|  Not installed   |  Not installed   |  Not installed   |  Not installed   |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+2|  Not installed   |  Not installed   |  Not installed   |  Not installed   |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+ |                  |                  |                  |                  |
+------------------------------------------------------------------------------
+STOP_SOCKET_1_TABLE
+======================================================================================
+======================================================================================
+                    |  Socket 0  |  Socket 1  |  Socket 2  |  Socket 3  |   System   |
+======================================================================================
+Active Memory       |     64GB   |     64GB   |     N/A    |     N/A    |    128GB   |
+DDR3 Freq           |            |            |            |            |  DDR3-1333 |
+Ch0 CL-RCD-RP-CMD   | 9-9-9-1n   | 9-9-9-1n   |            |            |            |
+Ch1 CL-RCD-RP-CMD   | 9-9-9-1n   | 9-9-9-1n   |            |            |            |
+Ch2 CL-RCD-RP-CMD   | 9-9-9-1n   | 9-9-9-1n   |            |            |            |
+Ch3 CL-RCD-RP-CMD   | 9-9-9-1n   | 9-9-9-1n   |            |            |            |
+DDR3 Vdd            |            |            |            |            |    1.5v    |
+ECC Checking        |            |            |            |            |     On     |
+Patrol/Demand Scrub |            |            |            |            | On  /  Off |
+RAS Mode            |            |            |            |            |   Indep    |
+Paging Policy       |            |            |            |            | Adapt Open |
+Data Scrambling     |            |            |            |            |     Off    |
+======================================================================================
+
+STOP_DIMMINFO_TABLE
+STOP_MRC_RUN
+Checkpoint Code: Socket 0, 0xBF, 0x00, 0x0000
+
+struct host.bdat.bdatHeader {
+  BiosDataSignature          BDATHEAD
+  BiosDataStructSize         0x24CB2
+  Crc16                      0x925F
+  PrimaryVersion             0x2
+  SecondaryVersion           0x0
+  OemOffset                  0x0
+} // bdatheader
+
+struct host.bdat.bdatSys {
+  refCodeRevision          01.00.00
+  marginLoopCount          1000
+  struct socketList[0] {
+    imcEnabled             1
+    ddrFreq                1334MT/s
+    ddrVoltage             0x0
+    imcDid                 0x8086
+    imcRid                 7
+    struct channelList[0] {
+      chEnabled            1
+      numDimmSlot          2
+      struct dimmList[0] {
+      dimmEnabled          1
+        struct rankList[0] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  152
+            recEnDelay[1]  122
+            recEnDelay[2]  111
+            recEnDelay[3]  83
+            recEnDelay[4]  65
+            recEnDelay[5]  75
+            recEnDelay[6]  101
+            recEnDelay[7]  120
+            recEnDelay[8]  60
+            recEnDelay[9]  163
+            recEnDelay[10]  130
+            recEnDelay[11]  113
+            recEnDelay[12]  91
+            recEnDelay[13]  68
+            recEnDelay[14]  82
+            recEnDelay[15]  108
+            recEnDelay[16]  127
+            recEnDelay[17]  66
+            wlDelay[0]     253
+            wlDelay[1]     247
+            wlDelay[2]     227
+            wlDelay[3]     215
+            wlDelay[4]     194
+            wlDelay[5]     223
+            wlDelay[6]     234
+            wlDelay[7]     252
+            wlDelay[8]     200
+            wlDelay[9]     261
+            wlDelay[10]     258
+            wlDelay[11]     234
+            wlDelay[12]     223
+            wlDelay[13]     202
+            wlDelay[14]     233
+            wlDelay[15]     241
+            wlDelay[16]     262
+            wlDelay[17]     212
+            rxDqDelay[0]   36
+            rxDqDelay[1]   35
+            rxDqDelay[2]   35
+            rxDqDelay[3]   35
+            rxDqDelay[4]   37
+            rxDqDelay[5]   35
+            rxDqDelay[6]   33
+            rxDqDelay[7]   35
+            rxDqDelay[8]   34
+            rxDqDelay[9]   36
+            rxDqDelay[10]   35
+            rxDqDelay[11]   35
+            rxDqDelay[12]   36
+            rxDqDelay[13]   35
+            rxDqDelay[14]   37
+            rxDqDelay[15]   34
+            rxDqDelay[16]   36
+            rxDqDelay[17]   36
+            txDqDelay[0]   93
+            txDqDelay[1]   85
+            txDqDelay[2]   65
+            txDqDelay[3]   54
+            txDqDelay[4]   32
+            txDqDelay[5]   61
+            txDqDelay[6]   72
+            txDqDelay[7]   91
+            txDqDelay[8]   39
+            txDqDelay[9]   35
+            txDqDelay[10]   32
+            txDqDelay[11]   75
+            txDqDelay[12]   58
+            txDqDelay[13]   40
+            txDqDelay[14]   71
+            txDqDelay[15]   81
+            txDqDelay[16]   35
+            txDqDelay[17]   52
+            clkDelay       25
+            ctlDelay       25
+            cmdDelay[0]    0
+            cmdDelay[1]    0
+            cmdDelay[2]    2
+            ioLatency      6
+            roundtrip      37
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct rankList[1] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  160
+            recEnDelay[1]  122
+            recEnDelay[2]  109
+            recEnDelay[3]  86
+            recEnDelay[4]  63
+            recEnDelay[5]  73
+            recEnDelay[6]  102
+            recEnDelay[7]  116
+            recEnDelay[8]  56
+            recEnDelay[9]  162
+            recEnDelay[10]  132
+            recEnDelay[11]  114
+            recEnDelay[12]  93
+            recEnDelay[13]  72
+            recEnDelay[14]  82
+            recEnDelay[15]  107
+            recEnDelay[16]  125
+            recEnDelay[17]  63
+            wlDelay[0]     253
+            wlDelay[1]     248
+            wlDelay[2]     226
+            wlDelay[3]     216
+            wlDelay[4]     194
+            wlDelay[5]     224
+            wlDelay[6]     232
+            wlDelay[7]     250
+            wlDelay[8]     198
+            wlDelay[9]     260
+            wlDelay[10]     258
+            wlDelay[11]     231
+            wlDelay[12]     220
+            wlDelay[13]     201
+            wlDelay[14]     231
+            wlDelay[15]     239
+            wlDelay[16]     260
+            wlDelay[17]     210
+            rxDqDelay[0]   37
+            rxDqDelay[1]   35
+            rxDqDelay[2]   35
+            rxDqDelay[3]   35
+            rxDqDelay[4]   37
+            rxDqDelay[5]   35
+            rxDqDelay[6]   33
+            rxDqDelay[7]   35
+            rxDqDelay[8]   34
+            rxDqDelay[9]   37
+            rxDqDelay[10]   35
+            rxDqDelay[11]   34
+            rxDqDelay[12]   36
+            rxDqDelay[13]   37
+            rxDqDelay[14]   37
+            rxDqDelay[15]   34
+            rxDqDelay[16]   36
+            rxDqDelay[17]   35
+            txDqDelay[0]   93
+            txDqDelay[1]   87
+            txDqDelay[2]   65
+            txDqDelay[3]   55
+            txDqDelay[4]   32
+            txDqDelay[5]   62
+            txDqDelay[6]   69
+            txDqDelay[7]   88
+            txDqDelay[8]   37
+            txDqDelay[9]   34
+            txDqDelay[10]   33
+            txDqDelay[11]   70
+            txDqDelay[12]   58
+            txDqDelay[13]   38
+            txDqDelay[14]   69
+            txDqDelay[15]   80
+            txDqDelay[16]   35
+            txDqDelay[17]   51
+            clkDelay       25
+            ctlDelay       25
+            cmdDelay[0]    0
+            cmdDelay[1]    0
+            cmdDelay[2]    2
+            ioLatency      6
+            roundtrip      37
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct spdBytes {
+          spdData[2]        11
+          spdData[3]        1
+          spdData[4]        4
+          spdData[5]        34
+          spdData[7]        8
+          spdData[8]        11
+          spdData[11]        8
+          spdData[12]        10
+          spdData[31]        5
+          spdData[32]        128
+          spdData[33]        0
+          spdData[62]        68
+          spdData[63]        9
+          spdData[64]        0
+          spdData[65]        0
+          spdData[66]        179
+          spdData[67]        99
+          spdData[117]        0
+          spdData[118]        44
+          spdData[122]        12
+          spdData[123]        126
+          spdData[124]        121
+          spdData[125]        104
+          spdData[128]        51
+          spdData[129]        54
+          spdData[130]        75
+          spdData[131]        83
+          spdData[132]        70
+          spdData[133]        50
+          spdData[134]        71
+          spdData[135]        55
+          spdData[136]        50
+          spdData[137]        80
+          spdData[138]        90
+          spdData[139]        45
+          spdData[140]        49
+          spdData[141]        71
+          spdData[142]        54
+          spdData[143]        69
+          spdData[144]        49
+          spdData[145]        32
+        } // spdBytes
+      } // dimmList
+    } // channelList
+    struct channelList[1] {
+      chEnabled            1
+      numDimmSlot          2
+      struct dimmList[0] {
+      dimmEnabled          1
+        struct rankList[0] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  113
+            recEnDelay[1]  90
+            recEnDelay[2]  64
+            recEnDelay[3]  44
+            recEnDelay[4]  12
+            recEnDelay[5]  35
+            recEnDelay[6]  58
+            recEnDelay[7]  82
+            recEnDelay[8]  14
+            recEnDelay[9]  115
+            recEnDelay[10]  98
+            recEnDelay[11]  72
+            recEnDelay[12]  53
+            recEnDelay[13]  22
+            recEnDelay[14]  43
+            recEnDelay[15]  68
+            recEnDelay[16]  91
+            recEnDelay[17]  22
+            wlDelay[0]     259
+            wlDelay[1]     239
+            wlDelay[2]     226
+            wlDelay[3]     207
+            wlDelay[4]     197
+            wlDelay[5]     216
+            wlDelay[6]     232
+            wlDelay[7]     245
+            wlDelay[8]     194
+            wlDelay[9]     266
+            wlDelay[10]     248
+            wlDelay[11]     233
+            wlDelay[12]     216
+            wlDelay[13]     204
+            wlDelay[14]     226
+            wlDelay[15]     240
+            wlDelay[16]     255
+            wlDelay[17]     206
+            rxDqDelay[0]   36
+            rxDqDelay[1]   33
+            rxDqDelay[2]   37
+            rxDqDelay[3]   36
+            rxDqDelay[4]   38
+            rxDqDelay[5]   36
+            rxDqDelay[6]   36
+            rxDqDelay[7]   35
+            rxDqDelay[8]   37
+            rxDqDelay[9]   37
+            rxDqDelay[10]   35
+            rxDqDelay[11]   34
+            rxDqDelay[12]   35
+            rxDqDelay[13]   36
+            rxDqDelay[14]   36
+            rxDqDelay[15]   35
+            rxDqDelay[16]   34
+            rxDqDelay[17]   38
+            txDqDelay[0]   34
+            txDqDelay[1]   80
+            txDqDelay[2]   62
+            txDqDelay[3]   46
+            txDqDelay[4]   34
+            txDqDelay[5]   55
+            txDqDelay[6]   72
+            txDqDelay[7]   85
+            txDqDelay[8]   32
+            txDqDelay[9]   40
+            txDqDelay[10]   87
+            txDqDelay[11]   71
+            txDqDelay[12]   55
+            txDqDelay[13]   41
+            txDqDelay[14]   66
+            txDqDelay[15]   79
+            txDqDelay[16]   96
+            txDqDelay[17]   45
+            clkDelay       21
+            ctlDelay       21
+            cmdDelay[0]    2
+            cmdDelay[1]    4
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct rankList[1] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  111
+            recEnDelay[1]  89
+            recEnDelay[2]  63
+            recEnDelay[3]  44
+            recEnDelay[4]  15
+            recEnDelay[5]  35
+            recEnDelay[6]  56
+            recEnDelay[7]  79
+            recEnDelay[8]  11
+            recEnDelay[9]  115
+            recEnDelay[10]  96
+            recEnDelay[11]  72
+            recEnDelay[12]  54
+            recEnDelay[13]  18
+            recEnDelay[14]  44
+            recEnDelay[15]  66
+            recEnDelay[16]  91
+            recEnDelay[17]  19
+            wlDelay[0]     256
+            wlDelay[1]     239
+            wlDelay[2]     226
+            wlDelay[3]     206
+            wlDelay[4]     195
+            wlDelay[5]     218
+            wlDelay[6]     230
+            wlDelay[7]     246
+            wlDelay[8]     197
+            wlDelay[9]     264
+            wlDelay[10]     250
+            wlDelay[11]     236
+            wlDelay[12]     217
+            wlDelay[13]     207
+            wlDelay[14]     225
+            wlDelay[15]     239
+            wlDelay[16]     256
+            wlDelay[17]     208
+            rxDqDelay[0]   37
+            rxDqDelay[1]   35
+            rxDqDelay[2]   37
+            rxDqDelay[3]   36
+            rxDqDelay[4]   38
+            rxDqDelay[5]   37
+            rxDqDelay[6]   35
+            rxDqDelay[7]   35
+            rxDqDelay[8]   37
+            rxDqDelay[9]   37
+            rxDqDelay[10]   35
+            rxDqDelay[11]   34
+            rxDqDelay[12]   36
+            rxDqDelay[13]   36
+            rxDqDelay[14]   36
+            rxDqDelay[15]   34
+            rxDqDelay[16]   33
+            rxDqDelay[17]   37
+            txDqDelay[0]   31
+            txDqDelay[1]   80
+            txDqDelay[2]   63
+            txDqDelay[3]   45
+            txDqDelay[4]   32
+            txDqDelay[5]   56
+            txDqDelay[6]   70
+            txDqDelay[7]   84
+            txDqDelay[8]   35
+            txDqDelay[9]   38
+            txDqDelay[10]   90
+            txDqDelay[11]   75
+            txDqDelay[12]   55
+            txDqDelay[13]   44
+            txDqDelay[14]   65
+            txDqDelay[15]   80
+            txDqDelay[16]   32
+            txDqDelay[17]   47
+            clkDelay       21
+            ctlDelay       21
+            cmdDelay[0]    2
+            cmdDelay[1]    4
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct spdBytes {
+          spdData[2]        11
+          spdData[3]        1
+          spdData[4]        4
+          spdData[5]        34
+          spdData[7]        8
+          spdData[8]        11
+          spdData[11]        8
+          spdData[12]        10
+          spdData[31]        5
+          spdData[32]        128
+          spdData[33]        0
+          spdData[62]        68
+          spdData[63]        9
+          spdData[64]        0
+          spdData[65]        0
+          spdData[66]        179
+          spdData[67]        99
+          spdData[117]        0
+          spdData[118]        44
+          spdData[122]        12
+          spdData[123]        127
+          spdData[124]        49
+          spdData[125]        2
+          spdData[128]        51
+          spdData[129]        54
+          spdData[130]        75
+          spdData[131]        83
+          spdData[132]        70
+          spdData[133]        50
+          spdData[134]        71
+          spdData[135]        55
+          spdData[136]        50
+          spdData[137]        80
+          spdData[138]        90
+          spdData[139]        45
+          spdData[140]        49
+          spdData[141]        71
+          spdData[142]        54
+          spdData[143]        69
+          spdData[144]        49
+          spdData[145]        32
+        } // spdBytes
+      } // dimmList
+    } // channelList
+    struct channelList[2] {
+      chEnabled            1
+      numDimmSlot          2
+      struct dimmList[0] {
+      dimmEnabled          1
+        struct rankList[0] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  138
+            recEnDelay[1]  113
+            recEnDelay[2]  88
+            recEnDelay[3]  77
+            recEnDelay[4]  56
+            recEnDelay[5]  82
+            recEnDelay[6]  105
+            recEnDelay[7]  125
+            recEnDelay[8]  57
+            recEnDelay[9]  145
+            recEnDelay[10]  125
+            recEnDelay[11]  95
+            recEnDelay[12]  84
+            recEnDelay[13]  60
+            recEnDelay[14]  90
+            recEnDelay[15]  113
+            recEnDelay[16]  136
+            recEnDelay[17]  60
+            wlDelay[0]     268
+            wlDelay[1]     249
+            wlDelay[2]     239
+            wlDelay[3]     213
+            wlDelay[4]     192
+            wlDelay[5]     205
+            wlDelay[6]     217
+            wlDelay[7]     236
+            wlDelay[8]     188
+            wlDelay[9]     276
+            wlDelay[10]     257
+            wlDelay[11]     245
+            wlDelay[12]     220
+            wlDelay[13]     202
+            wlDelay[14]     213
+            wlDelay[15]     227
+            wlDelay[16]     245
+            wlDelay[17]     198
+            rxDqDelay[0]   35
+            rxDqDelay[1]   32
+            rxDqDelay[2]   35
+            rxDqDelay[3]   36
+            rxDqDelay[4]   35
+            rxDqDelay[5]   36
+            rxDqDelay[6]   35
+            rxDqDelay[7]   35
+            rxDqDelay[8]   35
+            rxDqDelay[9]   36
+            rxDqDelay[10]   35
+            rxDqDelay[11]   35
+            rxDqDelay[12]   35
+            rxDqDelay[13]   36
+            rxDqDelay[14]   38
+            rxDqDelay[15]   36
+            rxDqDelay[16]   35
+            rxDqDelay[17]   32
+            txDqDelay[0]   41
+            txDqDelay[1]   87
+            txDqDelay[2]   77
+            txDqDelay[3]   51
+            txDqDelay[4]   31
+            txDqDelay[5]   43
+            txDqDelay[6]   55
+            txDqDelay[7]   76
+            txDqDelay[8]   90
+            txDqDelay[9]   49
+            txDqDelay[10]   31
+            txDqDelay[11]   84
+            txDqDelay[12]   58
+            txDqDelay[13]   40
+            txDqDelay[14]   50
+            txDqDelay[15]   66
+            txDqDelay[16]   84
+            txDqDelay[17]   37
+            clkDelay       21
+            ctlDelay       21
+            cmdDelay[0]    2
+            cmdDelay[1]    2
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct rankList[1] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  139
+            recEnDelay[1]  115
+            recEnDelay[2]  89
+            recEnDelay[3]  78
+            recEnDelay[4]  56
+            recEnDelay[5]  81
+            recEnDelay[6]  107
+            recEnDelay[7]  129
+            recEnDelay[8]  59
+            recEnDelay[9]  146
+            recEnDelay[10]  124
+            recEnDelay[11]  94
+            recEnDelay[12]  86
+            recEnDelay[13]  60
+            recEnDelay[14]  89
+            recEnDelay[15]  114
+            recEnDelay[16]  133
+            recEnDelay[17]  62
+            wlDelay[0]     267
+            wlDelay[1]     249
+            wlDelay[2]     237
+            wlDelay[3]     211
+            wlDelay[4]     194
+            wlDelay[5]     205
+            wlDelay[6]     218
+            wlDelay[7]     234
+            wlDelay[8]     187
+            wlDelay[9]     274
+            wlDelay[10]     257
+            wlDelay[11]     246
+            wlDelay[12]     220
+            wlDelay[13]     199
+            wlDelay[14]     213
+            wlDelay[15]     224
+            wlDelay[16]     244
+            wlDelay[17]     199
+            rxDqDelay[0]   36
+            rxDqDelay[1]   34
+            rxDqDelay[2]   35
+            rxDqDelay[3]   36
+            rxDqDelay[4]   35
+            rxDqDelay[5]   35
+            rxDqDelay[6]   36
+            rxDqDelay[7]   35
+            rxDqDelay[8]   34
+            rxDqDelay[9]   37
+            rxDqDelay[10]   35
+            rxDqDelay[11]   35
+            rxDqDelay[12]   35
+            rxDqDelay[13]   36
+            rxDqDelay[14]   37
+            rxDqDelay[15]   35
+            rxDqDelay[16]   35
+            rxDqDelay[17]   33
+            txDqDelay[0]   40
+            txDqDelay[1]   87
+            txDqDelay[2]   76
+            txDqDelay[3]   49
+            txDqDelay[4]   32
+            txDqDelay[5]   43
+            txDqDelay[6]   56
+            txDqDelay[7]   74
+            txDqDelay[8]   90
+            txDqDelay[9]   48
+            txDqDelay[10]   31
+            txDqDelay[11]   85
+            txDqDelay[12]   59
+            txDqDelay[13]   37
+            txDqDelay[14]   51
+            txDqDelay[15]   63
+            txDqDelay[16]   83
+            txDqDelay[17]   38
+            clkDelay       21
+            ctlDelay       21
+            cmdDelay[0]    2
+            cmdDelay[1]    2
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct spdBytes {
+          spdData[2]        11
+          spdData[3]        1
+          spdData[4]        4
+          spdData[5]        34
+          spdData[7]        8
+          spdData[8]        11
+          spdData[11]        8
+          spdData[12]        10
+          spdData[31]        5
+          spdData[32]        128
+          spdData[33]        0
+          spdData[62]        68
+          spdData[63]        9
+          spdData[64]        0
+          spdData[65]        0
+          spdData[66]        179
+          spdData[67]        99
+          spdData[117]        0
+          spdData[118]        44
+          spdData[122]        12
+          spdData[123]        127
+          spdData[124]        145
+          spdData[125]        229
+          spdData[128]        51
+          spdData[129]        54
+          spdData[130]        75
+          spdData[131]        83
+          spdData[132]        70
+          spdData[133]        50
+          spdData[134]        71
+          spdData[135]        55
+          spdData[136]        50
+          spdData[137]        80
+          spdData[138]        90
+          spdData[139]        45
+          spdData[140]        49
+          spdData[141]        71
+          spdData[142]        54
+          spdData[143]        69
+          spdData[144]        49
+          spdData[145]        32
+        } // spdBytes
+      } // dimmList
+    } // channelList
+    struct channelList[3] {
+      chEnabled            1
+      numDimmSlot          2
+      struct dimmList[0] {
+      dimmEnabled          1
+        struct rankList[0] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  98
+            recEnDelay[1]  77
+            recEnDelay[2]  52
+            recEnDelay[3]  38
+            recEnDelay[4]  16
+            recEnDelay[5]  43
+            recEnDelay[6]  70
+            recEnDelay[7]  85
+            recEnDelay[8]  13
+            recEnDelay[9]  106
+            recEnDelay[10]  90
+            recEnDelay[11]  59
+            recEnDelay[12]  46
+            recEnDelay[13]  21
+            recEnDelay[14]  51
+            recEnDelay[15]  77
+            recEnDelay[16]  97
+            recEnDelay[17]  22
+            wlDelay[0]     265
+            wlDelay[1]     248
+            wlDelay[2]     236
+            wlDelay[3]     210
+            wlDelay[4]     191
+            wlDelay[5]     207
+            wlDelay[6]     218
+            wlDelay[7]     239
+            wlDelay[8]     197
+            wlDelay[9]     275
+            wlDelay[10]     259
+            wlDelay[11]     241
+            wlDelay[12]     217
+            wlDelay[13]     201
+            wlDelay[14]     216
+            wlDelay[15]     226
+            wlDelay[16]     250
+            wlDelay[17]     205
+            rxDqDelay[0]   37
+            rxDqDelay[1]   34
+            rxDqDelay[2]   36
+            rxDqDelay[3]   35
+            rxDqDelay[4]   37
+            rxDqDelay[5]   36
+            rxDqDelay[6]   37
+            rxDqDelay[7]   35
+            rxDqDelay[8]   37
+            rxDqDelay[9]   37
+            rxDqDelay[10]   34
+            rxDqDelay[11]   33
+            rxDqDelay[12]   36
+            rxDqDelay[13]   35
+            rxDqDelay[14]   38
+            rxDqDelay[15]   36
+            rxDqDelay[16]   36
+            rxDqDelay[17]   36
+            txDqDelay[0]   41
+            txDqDelay[1]   87
+            txDqDelay[2]   75
+            txDqDelay[3]   48
+            txDqDelay[4]   93
+            txDqDelay[5]   45
+            txDqDelay[6]   56
+            txDqDelay[7]   77
+            txDqDelay[8]   35
+            txDqDelay[9]   47
+            txDqDelay[10]   34
+            txDqDelay[11]   80
+            txDqDelay[12]   57
+            txDqDelay[13]   39
+            txDqDelay[14]   54
+            txDqDelay[15]   66
+            txDqDelay[16]   85
+            txDqDelay[17]   45
+            clkDelay       21
+            ctlDelay       21
+            cmdDelay[0]    8
+            cmdDelay[1]    8
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct rankList[1] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  97
+            recEnDelay[1]  79
+            recEnDelay[2]  50
+            recEnDelay[3]  35
+            recEnDelay[4]  16
+            recEnDelay[5]  46
+            recEnDelay[6]  72
+            recEnDelay[7]  86
+            recEnDelay[8]  12
+            recEnDelay[9]  104
+            recEnDelay[10]  91
+            recEnDelay[11]  59
+            recEnDelay[12]  46
+            recEnDelay[13]  24
+            recEnDelay[14]  49
+            recEnDelay[15]  76
+            recEnDelay[16]  95
+            recEnDelay[17]  20
+            wlDelay[0]     265
+            wlDelay[1]     247
+            wlDelay[2]     236
+            wlDelay[3]     210
+            wlDelay[4]     194
+            wlDelay[5]     207
+            wlDelay[6]     218
+            wlDelay[7]     240
+            wlDelay[8]     195
+            wlDelay[9]     274
+            wlDelay[10]     259
+            wlDelay[11]     241
+            wlDelay[12]     217
+            wlDelay[13]     202
+            wlDelay[14]     216
+            wlDelay[15]     225
+            wlDelay[16]     249
+            wlDelay[17]     205
+            rxDqDelay[0]   37
+            rxDqDelay[1]   35
+            rxDqDelay[2]   36
+            rxDqDelay[3]   34
+            rxDqDelay[4]   37
+            rxDqDelay[5]   37
+            rxDqDelay[6]   37
+            rxDqDelay[7]   35
+            rxDqDelay[8]   38
+            rxDqDelay[9]   37
+            rxDqDelay[10]   34
+            rxDqDelay[11]   34
+            rxDqDelay[12]   36
+            rxDqDelay[13]   36
+            rxDqDelay[14]   38
+            rxDqDelay[15]   36
+            rxDqDelay[16]   36
+            rxDqDelay[17]   36
+            txDqDelay[0]   39
+            txDqDelay[1]   87
+            txDqDelay[2]   76
+            txDqDelay[3]   49
+            txDqDelay[4]   33
+            txDqDelay[5]   46
+            txDqDelay[6]   56
+            txDqDelay[7]   78
+            txDqDelay[8]   34
+            txDqDelay[9]   46
+            txDqDelay[10]   33
+            txDqDelay[11]   81
+            txDqDelay[12]   56
+            txDqDelay[13]   40
+            txDqDelay[14]   53
+            txDqDelay[15]   65
+            txDqDelay[16]   84
+            txDqDelay[17]   45
+            clkDelay       21
+            ctlDelay       21
+            cmdDelay[0]    8
+            cmdDelay[1]    8
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct spdBytes {
+          spdData[2]        11
+          spdData[3]        1
+          spdData[4]        4
+          spdData[5]        34
+          spdData[7]        8
+          spdData[8]        11
+          spdData[11]        8
+          spdData[12]        10
+          spdData[31]        5
+          spdData[32]        128
+          spdData[33]        0
+          spdData[62]        68
+          spdData[63]        9
+          spdData[64]        0
+          spdData[65]        0
+          spdData[66]        179
+          spdData[67]        99
+          spdData[117]        0
+          spdData[118]        44
+          spdData[122]        12
+          spdData[123]        127
+          spdData[124]        48
+          spdData[125]        124
+          spdData[128]        51
+          spdData[129]        54
+          spdData[130]        75
+          spdData[131]        83
+          spdData[132]        70
+          spdData[133]        50
+          spdData[134]        71
+          spdData[135]        55
+          spdData[136]        50
+          spdData[137]        80
+          spdData[138]        90
+          spdData[139]        45
+          spdData[140]        49
+          spdData[141]        71
+          spdData[142]        54
+          spdData[143]        69
+          spdData[144]        49
+          spdData[145]        32
+        } // spdBytes
+      } // dimmList
+    } // channelList
+  } // node
+  struct socketList[1] {
+    imcEnabled             1
+    ddrFreq                1334MT/s
+    ddrVoltage             0x0
+    imcDid                 0x8086
+    imcRid                 7
+    struct channelList[0] {
+      chEnabled            1
+      numDimmSlot          2
+      struct dimmList[0] {
+      dimmEnabled          1
+        struct rankList[0] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  157
+            recEnDelay[1]  127
+            recEnDelay[2]  111
+            recEnDelay[3]  86
+            recEnDelay[4]  67
+            recEnDelay[5]  76
+            recEnDelay[6]  107
+            recEnDelay[7]  123
+            recEnDelay[8]  59
+            recEnDelay[9]  165
+            recEnDelay[10]  132
+            recEnDelay[11]  114
+            recEnDelay[12]  93
+            recEnDelay[13]  74
+            recEnDelay[14]  84
+            recEnDelay[15]  115
+            recEnDelay[16]  125
+            recEnDelay[17]  61
+            wlDelay[0]     256
+            wlDelay[1]     248
+            wlDelay[2]     227
+            wlDelay[3]     216
+            wlDelay[4]     194
+            wlDelay[5]     228
+            wlDelay[6]     235
+            wlDelay[7]     256
+            wlDelay[8]     204
+            wlDelay[9]     263
+            wlDelay[10]     257
+            wlDelay[11]     236
+            wlDelay[12]     224
+            wlDelay[13]     201
+            wlDelay[14]     237
+            wlDelay[15]     241
+            wlDelay[16]     262
+            wlDelay[17]     210
+            rxDqDelay[0]   35
+            rxDqDelay[1]   36
+            rxDqDelay[2]   34
+            rxDqDelay[3]   35
+            rxDqDelay[4]   35
+            rxDqDelay[5]   33
+            rxDqDelay[6]   33
+            rxDqDelay[7]   33
+            rxDqDelay[8]   35
+            rxDqDelay[9]   35
+            rxDqDelay[10]   35
+            rxDqDelay[11]   32
+            rxDqDelay[12]   35
+            rxDqDelay[13]   34
+            rxDqDelay[14]   35
+            rxDqDelay[15]   33
+            rxDqDelay[16]   35
+            rxDqDelay[17]   32
+            txDqDelay[0]   31
+            txDqDelay[1]   86
+            txDqDelay[2]   66
+            txDqDelay[3]   54
+            txDqDelay[4]   32
+            txDqDelay[5]   67
+            txDqDelay[6]   73
+            txDqDelay[7]   29
+            txDqDelay[8]   42
+            txDqDelay[9]   36
+            txDqDelay[10]   31
+            txDqDelay[11]   76
+            txDqDelay[12]   61
+            txDqDelay[13]   39
+            txDqDelay[14]   76
+            txDqDelay[15]   80
+            txDqDelay[16]   36
+            txDqDelay[17]   51
+            clkDelay       21
+            ctlDelay       21
+            cmdDelay[0]    0
+            cmdDelay[1]    2
+            cmdDelay[2]    2
+            ioLatency      6
+            roundtrip      37
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct rankList[1] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  157
+            recEnDelay[1]  126
+            recEnDelay[2]  110
+            recEnDelay[3]  85
+            recEnDelay[4]  65
+            recEnDelay[5]  82
+            recEnDelay[6]  105
+            recEnDelay[7]  125
+            recEnDelay[8]  58
+            recEnDelay[9]  164
+            recEnDelay[10]  134
+            recEnDelay[11]  113
+            recEnDelay[12]  93
+            recEnDelay[13]  72
+            recEnDelay[14]  81
+            recEnDelay[15]  110
+            recEnDelay[16]  126
+            recEnDelay[17]  65
+            wlDelay[0]     255
+            wlDelay[1]     249
+            wlDelay[2]     227
+            wlDelay[3]     214
+            wlDelay[4]     193
+            wlDelay[5]     225
+            wlDelay[6]     232
+            wlDelay[7]     256
+            wlDelay[8]     206
+            wlDelay[9]     262
+            wlDelay[10]     260
+            wlDelay[11]     234
+            wlDelay[12]     223
+            wlDelay[13]     203
+            wlDelay[14]     234
+            wlDelay[15]     239
+            wlDelay[16]     263
+            wlDelay[17]     208
+            rxDqDelay[0]   35
+            rxDqDelay[1]   36
+            rxDqDelay[2]   34
+            rxDqDelay[3]   36
+            rxDqDelay[4]   33
+            rxDqDelay[5]   32
+            rxDqDelay[6]   33
+            rxDqDelay[7]   33
+            rxDqDelay[8]   36
+            rxDqDelay[9]   35
+            rxDqDelay[10]   35
+            rxDqDelay[11]   33
+            rxDqDelay[12]   35
+            rxDqDelay[13]   34
+            rxDqDelay[14]   34
+            rxDqDelay[15]   33
+            rxDqDelay[16]   35
+            rxDqDelay[17]   32
+            txDqDelay[0]   94
+            txDqDelay[1]   87
+            txDqDelay[2]   65
+            txDqDelay[3]   53
+            txDqDelay[4]   32
+            txDqDelay[5]   65
+            txDqDelay[6]   70
+            txDqDelay[7]   29
+            txDqDelay[8]   44
+            txDqDelay[9]   37
+            txDqDelay[10]   36
+            txDqDelay[11]   73
+            txDqDelay[12]   60
+            txDqDelay[13]   42
+            txDqDelay[14]   73
+            txDqDelay[15]   77
+            txDqDelay[16]   35
+            txDqDelay[17]   48
+            clkDelay       21
+            ctlDelay       21
+            cmdDelay[0]    0
+            cmdDelay[1]    2
+            cmdDelay[2]    2
+            ioLatency      6
+            roundtrip      37
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct spdBytes {
+          spdData[2]        11
+          spdData[3]        1
+          spdData[4]        4
+          spdData[5]        34
+          spdData[7]        8
+          spdData[8]        11
+          spdData[11]        8
+          spdData[12]        10
+          spdData[31]        5
+          spdData[32]        128
+          spdData[33]        0
+          spdData[62]        68
+          spdData[63]        9
+          spdData[64]        0
+          spdData[65]        0
+          spdData[66]        179
+          spdData[67]        99
+          spdData[117]        0
+          spdData[118]        44
+          spdData[122]        12
+          spdData[123]        127
+          spdData[124]        62
+          spdData[125]        87
+          spdData[128]        51
+          spdData[129]        54
+          spdData[130]        75
+          spdData[131]        83
+          spdData[132]        70
+          spdData[133]        50
+          spdData[134]        71
+          spdData[135]        55
+          spdData[136]        50
+          spdData[137]        80
+          spdData[138]        90
+          spdData[139]        45
+          spdData[140]        49
+          spdData[141]        71
+          spdData[142]        54
+          spdData[143]        69
+          spdData[144]        49
+          spdData[145]        32
+        } // spdBytes
+      } // dimmList
+    } // channelList
+    struct channelList[1] {
+      chEnabled            1
+      numDimmSlot          2
+      struct dimmList[0] {
+      dimmEnabled          1
+        struct rankList[0] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  109
+            recEnDelay[1]  86
+            recEnDelay[2]  60
+            recEnDelay[3]  47
+            recEnDelay[4]  9
+            recEnDelay[5]  34
+            recEnDelay[6]  55
+            recEnDelay[7]  80
+            recEnDelay[8]  11
+            recEnDelay[9]  116
+            recEnDelay[10]  91
+            recEnDelay[11]  66
+            recEnDelay[12]  51
+            recEnDelay[13]  18
+            recEnDelay[14]  43
+            recEnDelay[15]  65
+            recEnDelay[16]  90
+            recEnDelay[17]  17
+            wlDelay[0]     251
+            wlDelay[1]     235
+            wlDelay[2]     221
+            wlDelay[3]     207
+            wlDelay[4]     194
+            wlDelay[5]     214
+            wlDelay[6]     228
+            wlDelay[7]     243
+            wlDelay[8]     195
+            wlDelay[9]     256
+            wlDelay[10]     244
+            wlDelay[11]     230
+            wlDelay[12]     212
+            wlDelay[13]     200
+            wlDelay[14]     224
+            wlDelay[15]     236
+            wlDelay[16]     255
+            wlDelay[17]     204
+            rxDqDelay[0]   34
+            rxDqDelay[1]   33
+            rxDqDelay[2]   35
+            rxDqDelay[3]   36
+            rxDqDelay[4]   34
+            rxDqDelay[5]   33
+            rxDqDelay[6]   35
+            rxDqDelay[7]   35
+            rxDqDelay[8]   35
+            rxDqDelay[9]   36
+            rxDqDelay[10]   34
+            rxDqDelay[11]   32
+            rxDqDelay[12]   36
+            rxDqDelay[13]   34
+            rxDqDelay[14]   35
+            rxDqDelay[15]   34
+            rxDqDelay[16]   35
+            rxDqDelay[17]   38
+            txDqDelay[0]   91
+            txDqDelay[1]   73
+            txDqDelay[2]   60
+            txDqDelay[3]   46
+            txDqDelay[4]   31
+            txDqDelay[5]   54
+            txDqDelay[6]   67
+            txDqDelay[7]   83
+            txDqDelay[8]   35
+            txDqDelay[9]   29
+            txDqDelay[10]   83
+            txDqDelay[11]   70
+            txDqDelay[12]   50
+            txDqDelay[13]   38
+            txDqDelay[14]   64
+            txDqDelay[15]   76
+            txDqDelay[16]   93
+            txDqDelay[17]   43
+            clkDelay       18
+            ctlDelay       18
+            cmdDelay[0]    2
+            cmdDelay[1]    6
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct rankList[1] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  108
+            recEnDelay[1]  82
+            recEnDelay[2]  59
+            recEnDelay[3]  45
+            recEnDelay[4]  10
+            recEnDelay[5]  34
+            recEnDelay[6]  53
+            recEnDelay[7]  79
+            recEnDelay[8]  10
+            recEnDelay[9]  117
+            recEnDelay[10]  93
+            recEnDelay[11]  67
+            recEnDelay[12]  49
+            recEnDelay[13]  18
+            recEnDelay[14]  39
+            recEnDelay[15]  62
+            recEnDelay[16]  87
+            recEnDelay[17]  14
+            wlDelay[0]     252
+            wlDelay[1]     234
+            wlDelay[2]     220
+            wlDelay[3]     203
+            wlDelay[4]     196
+            wlDelay[5]     214
+            wlDelay[6]     229
+            wlDelay[7]     244
+            wlDelay[8]     193
+            wlDelay[9]     258
+            wlDelay[10]     245
+            wlDelay[11]     227
+            wlDelay[12]     212
+            wlDelay[13]     203
+            wlDelay[14]     222
+            wlDelay[15]     236
+            wlDelay[16]     252
+            wlDelay[17]     203
+            rxDqDelay[0]   35
+            rxDqDelay[1]   33
+            rxDqDelay[2]   34
+            rxDqDelay[3]   36
+            rxDqDelay[4]   34
+            rxDqDelay[5]   33
+            rxDqDelay[6]   35
+            rxDqDelay[7]   35
+            rxDqDelay[8]   35
+            rxDqDelay[9]   37
+            rxDqDelay[10]   36
+            rxDqDelay[11]   32
+            rxDqDelay[12]   36
+            rxDqDelay[13]   34
+            rxDqDelay[14]   34
+            rxDqDelay[15]   34
+            rxDqDelay[16]   34
+            rxDqDelay[17]   37
+            txDqDelay[0]   91
+            txDqDelay[1]   72
+            txDqDelay[2]   59
+            txDqDelay[3]   42
+            txDqDelay[4]   33
+            txDqDelay[5]   54
+            txDqDelay[6]   67
+            txDqDelay[7]   83
+            txDqDelay[8]   32
+            txDqDelay[9]   32
+            txDqDelay[10]   85
+            txDqDelay[11]   67
+            txDqDelay[12]   51
+            txDqDelay[13]   41
+            txDqDelay[14]   62
+            txDqDelay[15]   75
+            txDqDelay[16]   90
+            txDqDelay[17]   42
+            clkDelay       18
+            ctlDelay       18
+            cmdDelay[0]    2
+            cmdDelay[1]    6
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct spdBytes {
+          spdData[2]        11
+          spdData[3]        1
+          spdData[4]        4
+          spdData[5]        34
+          spdData[7]        8
+          spdData[8]        11
+          spdData[11]        8
+          spdData[12]        10
+          spdData[31]        5
+          spdData[32]        128
+          spdData[33]        0
+          spdData[62]        68
+          spdData[63]        9
+          spdData[64]        0
+          spdData[65]        0
+          spdData[66]        179
+          spdData[67]        99
+          spdData[117]        0
+          spdData[118]        44
+          spdData[122]        12
+          spdData[123]        127
+          spdData[124]        48
+          spdData[125]        212
+          spdData[128]        51
+          spdData[129]        54
+          spdData[130]        75
+          spdData[131]        83
+          spdData[132]        70
+          spdData[133]        50
+          spdData[134]        71
+          spdData[135]        55
+          spdData[136]        50
+          spdData[137]        80
+          spdData[138]        90
+          spdData[139]        45
+          spdData[140]        49
+          spdData[141]        71
+          spdData[142]        54
+          spdData[143]        69
+          spdData[144]        49
+          spdData[145]        32
+        } // spdBytes
+      } // dimmList
+    } // channelList
+    struct channelList[2] {
+      chEnabled            1
+      numDimmSlot          2
+      struct dimmList[0] {
+      dimmEnabled          1
+        struct rankList[0] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  84
+            recEnDelay[1]  61
+            recEnDelay[2]  34
+            recEnDelay[3]  24
+            recEnDelay[4]  0
+            recEnDelay[5]  27
+            recEnDelay[6]  52
+            recEnDelay[7]  74
+            recEnDelay[8]  3
+            recEnDelay[9]  90
+            recEnDelay[10]  66
+            recEnDelay[11]  37
+            recEnDelay[12]  30
+            recEnDelay[13]  9
+            recEnDelay[14]  34
+            recEnDelay[15]  59
+            recEnDelay[16]  79
+            recEnDelay[17]  7
+            wlDelay[0]     273
+            wlDelay[1]     257
+            wlDelay[2]     246
+            wlDelay[3]     219
+            wlDelay[4]     198
+            wlDelay[5]     213
+            wlDelay[6]     224
+            wlDelay[7]     242
+            wlDelay[8]     196
+            wlDelay[9]     281
+            wlDelay[10]     264
+            wlDelay[11]     250
+            wlDelay[12]     224
+            wlDelay[13]     204
+            wlDelay[14]     219
+            wlDelay[15]     234
+            wlDelay[16]     249
+            wlDelay[17]     203
+            rxDqDelay[0]   36
+            rxDqDelay[1]   35
+            rxDqDelay[2]   36
+            rxDqDelay[3]   36
+            rxDqDelay[4]   34
+            rxDqDelay[5]   36
+            rxDqDelay[6]   36
+            rxDqDelay[7]   36
+            rxDqDelay[8]   36
+            rxDqDelay[9]   36
+            rxDqDelay[10]   34
+            rxDqDelay[11]   33
+            rxDqDelay[12]   36
+            rxDqDelay[13]   35
+            rxDqDelay[14]   38
+            rxDqDelay[15]   35
+            rxDqDelay[16]   36
+            rxDqDelay[17]   33
+            txDqDelay[0]   48
+            txDqDelay[1]   31
+            txDqDelay[2]   85
+            txDqDelay[3]   57
+            txDqDelay[4]   36
+            txDqDelay[5]   51
+            txDqDelay[6]   62
+            txDqDelay[7]   80
+            txDqDelay[8]   33
+            txDqDelay[9]   54
+            txDqDelay[10]   38
+            txDqDelay[11]   90
+            txDqDelay[12]   61
+            txDqDelay[13]   42
+            txDqDelay[14]   57
+            txDqDelay[15]   73
+            txDqDelay[16]   88
+            txDqDelay[17]   41
+            clkDelay       20
+            ctlDelay       20
+            cmdDelay[0]    2
+            cmdDelay[1]    2
+            cmdDelay[2]    0
+            ioLatency      3
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct rankList[1] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  83
+            recEnDelay[1]  60
+            recEnDelay[2]  34
+            recEnDelay[3]  24
+            recEnDelay[4]  1
+            recEnDelay[5]  26
+            recEnDelay[6]  49
+            recEnDelay[7]  74
+            recEnDelay[8]  3
+            recEnDelay[9]  90
+            recEnDelay[10]  67
+            recEnDelay[11]  39
+            recEnDelay[12]  28
+            recEnDelay[13]  5
+            recEnDelay[14]  31
+            recEnDelay[15]  59
+            recEnDelay[16]  77
+            recEnDelay[17]  6
+            wlDelay[0]     271
+            wlDelay[1]     255
+            wlDelay[2]     246
+            wlDelay[3]     218
+            wlDelay[4]     198
+            wlDelay[5]     212
+            wlDelay[6]     221
+            wlDelay[7]     244
+            wlDelay[8]     199
+            wlDelay[9]     277
+            wlDelay[10]     264
+            wlDelay[11]     250
+            wlDelay[12]     224
+            wlDelay[13]     205
+            wlDelay[14]     217
+            wlDelay[15]     233
+            wlDelay[16]     248
+            wlDelay[17]     203
+            rxDqDelay[0]   36
+            rxDqDelay[1]   35
+            rxDqDelay[2]   37
+            rxDqDelay[3]   36
+            rxDqDelay[4]   35
+            rxDqDelay[5]   35
+            rxDqDelay[6]   37
+            rxDqDelay[7]   36
+            rxDqDelay[8]   36
+            rxDqDelay[9]   35
+            rxDqDelay[10]   34
+            rxDqDelay[11]   34
+            rxDqDelay[12]   36
+            rxDqDelay[13]   35
+            rxDqDelay[14]   37
+            rxDqDelay[15]   35
+            rxDqDelay[16]   36
+            rxDqDelay[17]   33
+            txDqDelay[0]   45
+            txDqDelay[1]   93
+            txDqDelay[2]   85
+            txDqDelay[3]   56
+            txDqDelay[4]   37
+            txDqDelay[5]   51
+            txDqDelay[6]   60
+            txDqDelay[7]   83
+            txDqDelay[8]   38
+            txDqDelay[9]   50
+            txDqDelay[10]   38
+            txDqDelay[11]   90
+            txDqDelay[12]   62
+            txDqDelay[13]   43
+            txDqDelay[14]   54
+            txDqDelay[15]   72
+            txDqDelay[16]   86
+            txDqDelay[17]   42
+            clkDelay       20
+            ctlDelay       20
+            cmdDelay[0]    2
+            cmdDelay[1]    2
+            cmdDelay[2]    0
+            ioLatency      3
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct spdBytes {
+          spdData[2]        11
+          spdData[3]        1
+          spdData[4]        4
+          spdData[5]        34
+          spdData[7]        8
+          spdData[8]        11
+          spdData[11]        8
+          spdData[12]        10
+          spdData[31]        5
+          spdData[32]        128
+          spdData[33]        0
+          spdData[62]        68
+          spdData[63]        9
+          spdData[64]        0
+          spdData[65]        0
+          spdData[66]        179
+          spdData[67]        99
+          spdData[117]        0
+          spdData[118]        44
+          spdData[122]        12
+          spdData[123]        127
+          spdData[124]        48
+          spdData[125]        201
+          spdData[128]        51
+          spdData[129]        54
+          spdData[130]        75
+          spdData[131]        83
+          spdData[132]        70
+          spdData[133]        50
+          spdData[134]        71
+          spdData[135]        55
+          spdData[136]        50
+          spdData[137]        80
+          spdData[138]        90
+          spdData[139]        45
+          spdData[140]        49
+          spdData[141]        71
+          spdData[142]        54
+          spdData[143]        69
+          spdData[144]        49
+          spdData[145]        32
+        } // spdBytes
+      } // dimmList
+    } // channelList
+    struct channelList[3] {
+      chEnabled            1
+      numDimmSlot          2
+      struct dimmList[0] {
+      dimmEnabled          1
+        struct rankList[0] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  101
+            recEnDelay[1]  76
+            recEnDelay[2]  53
+            recEnDelay[3]  45
+            recEnDelay[4]  14
+            recEnDelay[5]  47
+            recEnDelay[6]  71
+            recEnDelay[7]  88
+            recEnDelay[8]  16
+            recEnDelay[9]  110
+            recEnDelay[10]  86
+            recEnDelay[11]  62
+            recEnDelay[12]  47
+            recEnDelay[13]  18
+            recEnDelay[14]  48
+            recEnDelay[15]  76
+            recEnDelay[16]  93
+            recEnDelay[17]  23
+            wlDelay[0]     262
+            wlDelay[1]     245
+            wlDelay[2]     235
+            wlDelay[3]     211
+            wlDelay[4]     189
+            wlDelay[5]     207
+            wlDelay[6]     216
+            wlDelay[7]     239
+            wlDelay[8]     193
+            wlDelay[9]     271
+            wlDelay[10]     254
+            wlDelay[11]     241
+            wlDelay[12]     219
+            wlDelay[13]     199
+            wlDelay[14]     212
+            wlDelay[15]     223
+            wlDelay[16]     247
+            wlDelay[17]     200
+            rxDqDelay[0]   34
+            rxDqDelay[1]   34
+            rxDqDelay[2]   36
+            rxDqDelay[3]   35
+            rxDqDelay[4]   36
+            rxDqDelay[5]   34
+            rxDqDelay[6]   35
+            rxDqDelay[7]   35
+            rxDqDelay[8]   36
+            rxDqDelay[9]   36
+            rxDqDelay[10]   34
+            rxDqDelay[11]   35
+            rxDqDelay[12]   37
+            rxDqDelay[13]   37
+            rxDqDelay[14]   36
+            rxDqDelay[15]   35
+            rxDqDelay[16]   36
+            rxDqDelay[17]   37
+            txDqDelay[0]   39
+            txDqDelay[1]   86
+            txDqDelay[2]   74
+            txDqDelay[3]   51
+            txDqDelay[4]   93
+            txDqDelay[5]   45
+            txDqDelay[6]   55
+            txDqDelay[7]   79
+            txDqDelay[8]   32
+            txDqDelay[9]   44
+            txDqDelay[10]   95
+            txDqDelay[11]   82
+            txDqDelay[12]   58
+            txDqDelay[13]   39
+            txDqDelay[14]   50
+            txDqDelay[15]   60
+            txDqDelay[16]   82
+            txDqDelay[17]   40
+            clkDelay       19
+            ctlDelay       19
+            cmdDelay[0]    6
+            cmdDelay[1]    4
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct rankList[1] {
+        rankEnabled        1
+          struct rankMargin {
+            rxDqLeft       0
+            rxDqRight      0
+            txDqLeft       0
+            txDqRight      0
+            cmdLeft        N/A
+            cmdRight       N/A
+            rxVrefLow      0
+            rxVrefHigh     0
+            txVrefLow      0
+            txVrefHigh     0
+          } // rankMargin
+          struct rankTraining {
+            recEnDelay[0]  100
+            recEnDelay[1]  79
+            recEnDelay[2]  55
+            recEnDelay[3]  43
+            recEnDelay[4]  13
+            recEnDelay[5]  47
+            recEnDelay[6]  72
+            recEnDelay[7]  88
+            recEnDelay[8]  14
+            recEnDelay[9]  108
+            recEnDelay[10]  88
+            recEnDelay[11]  62
+            recEnDelay[12]  46
+            recEnDelay[13]  18
+            recEnDelay[14]  50
+            recEnDelay[15]  75
+            recEnDelay[16]  95
+            recEnDelay[17]  20
+            wlDelay[0]     262
+            wlDelay[1]     247
+            wlDelay[2]     232
+            wlDelay[3]     211
+            wlDelay[4]     191
+            wlDelay[5]     207
+            wlDelay[6]     217
+            wlDelay[7]     239
+            wlDelay[8]     191
+            wlDelay[9]     271
+            wlDelay[10]     254
+            wlDelay[11]     238
+            wlDelay[12]     216
+            wlDelay[13]     201
+            wlDelay[14]     213
+            wlDelay[15]     222
+            wlDelay[16]     247
+            wlDelay[17]     202
+            rxDqDelay[0]   34
+            rxDqDelay[1]   35
+            rxDqDelay[2]   35
+            rxDqDelay[3]   35
+            rxDqDelay[4]   37
+            rxDqDelay[5]   35
+            rxDqDelay[6]   35
+            rxDqDelay[7]   34
+            rxDqDelay[8]   36
+            rxDqDelay[9]   37
+            rxDqDelay[10]   34
+            rxDqDelay[11]   35
+            rxDqDelay[12]   37
+            rxDqDelay[13]   37
+            rxDqDelay[14]   38
+            rxDqDelay[15]   35
+            rxDqDelay[16]   35
+            rxDqDelay[17]   37
+            txDqDelay[0]   39
+            txDqDelay[1]   88
+            txDqDelay[2]   72
+            txDqDelay[3]   51
+            txDqDelay[4]   94
+            txDqDelay[5]   44
+            txDqDelay[6]   57
+            txDqDelay[7]   78
+            txDqDelay[8]   94
+            txDqDelay[9]   46
+            txDqDelay[10]   96
+            txDqDelay[11]   79
+            txDqDelay[12]   56
+            txDqDelay[13]   39
+            txDqDelay[14]   51
+            txDqDelay[15]   60
+            txDqDelay[16]   84
+            txDqDelay[17]   42
+            clkDelay       19
+            ctlDelay       19
+            cmdDelay[0]    6
+            cmdDelay[1]    4
+            cmdDelay[2]    0
+            ioLatency      4
+            roundtrip      35
+          } // rankTraining
+          struct rankMRS {
+            mr0            0x0
+            mr1            0x0
+            mr2            0x0
+            mr3            0x0
+          }
+        } // rankList
+        struct spdBytes {
+          spdData[2]        11
+          spdData[3]        1
+          spdData[4]        4
+          spdData[5]        34
+          spdData[7]        8
+          spdData[8]        11
+          spdData[11]        8
+          spdData[12]        10
+          spdData[31]        5
+          spdData[32]        128
+          spdData[33]        0
+          spdData[62]        68
+          spdData[63]        9
+          spdData[64]        0
+          spdData[65]        0
+          spdData[66]        179
+          spdData[67]        99
+          spdData[117]        0
+          spdData[118]        44
+          spdData[122]        12
+          spdData[123]        127
+          spdData[124]        48
+          spdData[125]        200
+          spdData[128]        51
+          spdData[129]        54
+          spdData[130]        75
+          spdData[131]        83
+          spdData[132]        70
+          spdData[133]        50
+          spdData[134]        71
+          spdData[135]        55
+          spdData[136]        50
+          spdData[137]        80
+          spdData[138]        90
+          spdData[139]        45
+          spdData[140]        49
+          spdData[141]        71
+          spdData[142]        54
+          spdData[143]        69
+          spdData[144]        49
+          spdData[145]        32
+        } // spdBytes
+      } // dimmList
+    } // channelList
+  } // node
+} // bdat
+
+sysHost structure @ FF0C4EF4  has been copied to memory address 00100000, size = 00039AF4 
+STOP_MRC_RUN
+Reset Requested: 0
+Pipe Exit starting...Pipe Exit completed! Reset Requested: 0
+Checking for Reset Requests ...  None 
+Continue with system BIOS POST ...
+
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 1
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 201
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 401
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 601
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: 801
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: A01
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: C01
+ERROR: Type:2; Severity:80; Class:83; Subclass:80; Operation: E01
